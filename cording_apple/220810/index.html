@@ -12,9 +12,19 @@
 <body>
     <div class="alert-box" id="alert_box">
         This is alert-box
-        <button onclick="document.getElementById('alert_box').style.display = 'none';">닫기</button>
+        <button onclick="closeAlert()">닫기</button>
     </div>
-    <button onclick="document.getElementById('alert_box').style.display = 'block';">버튼</button>
+    <button onclick="openAlert()">버튼</button>
 </body>
+
+<script>
+    function openAlert() {
+        document.getElementById('alert_box').style.display = 'block';
+    }
+
+    function closeAlert() {
+        document.getElementById('alert_box').style.display = 'none';
+    }
+</script>
 
 </html>
