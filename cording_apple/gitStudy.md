@@ -1,5 +1,12 @@
 # Git 사용법 정리
 
+## 들어가기 앞서
+
+웬만하면 VSCode로 사용 가능하다.  
+하지만 가끔가다가 이게.. 뭐야..? 하고 버벅거릴 때를 대비한 가이드라인!
+
+<hr />
+
 ## Setting
 
 -   _git config --global core.editor "code --wait"_  
@@ -139,3 +146,41 @@ git commit -m '메세지'
     리셋인데 변동사항 지우지 말고 스테이징
 -   _git reset --mixed 커밋아이디_  
     리셋인데 변동사항 지우지 말고 unstage 해놓기
+
+<hr />
+
+## github는 다르다, github는!
+
+git이 책갈피라면 github는 책갈피를 모아서 저장할 수 있는 저장소.  
+저장소 생성 후 아주 친절하게 사용하는 방법을 적어놓고 있으니 그대로 따라가기.
+
+-   _git push -u 원격저장소주소.git main_  
+    main은 저장하고 싶은 브랜치명을 넣어도 됨. 원격저장소의 주소로 저장해주세요!  
+    push 할 때 -u를 추가하면 주소 기억하라는 뜻. 한 번 썼었다 하면 git push로 계속 푸쉬 가능
+-   _git remote add origin 원격저장소주소.git_  
+    git 주소를 origin이라는 변수에 저장. origin이라고 할때마다 깃주소가 남아있을 것.
+-   _git clone 원격저장소주소.git_  
+    저장소에서 코드 클론하기.  
+    협업을 할 때 이걸 쓴다면 팀원이 깃헙 아이디가 있어야 하고, 깃헙 아이디를 설정에서 등록해놔야 git push 가능.
+-   _git pull_  
+    원격과 로컬의 내용이 다르면 git push가 어려움.  
+    git push 전에 git pull을 해서 땡겨오고 푸시하기.  
+    git fetch + git merge = git pull, git fetch는 원격저장소에 있는 커밋 중 로컬에 없는 신규 커밋 가지고 오라는 소리.
+
+<hr />
+
+## pull request
+
+협업하면서 곧바로 머지하는 경우는 잘 없고 코드리뷰를 거친 다음에 진행한다.  
+저장소에서도 브랜치 생성 가능하다. 깃허브에서 직접 만들거나,
+
+```
+git branch 새브랜치명
+git switch 새브린치명
+git add .
+git commit -m "커밋메세지"
+git push 원격저장소주소(또는 origin) 새브랜치명
+```
+
+이렇게 브랜치를 생성하고 커밋하고 나면 어느 시점에서 머지를 해야하는 상황이 발생한다. pull requset를 열어서 어디 브랜치에 합칠지 선택하고 생성한다. 만약에 conflict가 발생하는 성태면 깃허브에서도 수정이 가능하다.  
+pull request 로 코드리뷰가 끝나면 merge pull request 버튼을 누를 수 있는데, 머지하는 방법은 위에서 언급한 머지하는 3가지 방법과 같다.
