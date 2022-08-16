@@ -10,20 +10,26 @@
 </head>
 
 <body>
-    <div class="alert-box" id="alert_box">
-        This is alert-box
-        <button onclick="closeAlert()">닫기</button>
+    <div class="alert-box" id="alert">
+        <p id="title">알림창임</p>
+        <button onclick="displayNone()">닫기</button>
     </div>
-    <button onclick="openAlert()">버튼</button>
+    <button onclick="showTitle('아이디를 입력하세요')">버튼1</button>
+    <button onclick="showTitle('비밀번호를 입력하세요')">버튼2</button>
 </body>
 
 <script>
-    function openAlert() {
-        document.getElementById('alert_box').style.display = 'block';
+    //초보자 때는 주석으로 일의 순서를 적어놓는 버릇을 들이자.
+    //버튼을 누른다
+    //alert 박스가 보인다
+    //alert 박스 안의 title이 변경된다
+    function showTitle(changeTitle) {
+        document.getElementById('alert').style.display = 'block';
+        document.getElementById('title').innerHTML = changeTitle;
     }
 
-    function closeAlert() {
-        document.getElementById('alert_box').style.display = 'none';
+    function displayNone() {
+        document.getElementById('alert').style.display = 'none';
     }
 </script>
 
