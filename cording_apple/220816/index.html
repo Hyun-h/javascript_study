@@ -14,6 +14,13 @@
 </head>
 
 <body>
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <button class="btn btn-danger" id="modalClose">닫기</button>
+        </div>
+    </div>
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
@@ -30,19 +37,23 @@
         <li class="list-group-item">And a fifth one</li>
     </ul>
 
+    <button class="btn btn-primary" id="modalOpen">모달열기</button>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script>
         document.querySelector('.navbar-toggler').addEventListener('click', () => {
-            //classList.add('className') : 클래스 이름 더해주세요!
-            //classList.toggle('className') : 클래스 이름 땠다 붙였다 해주세요!
-            //document.getElementsByClassName('list-group')[0].classList.toggle('show');
-
-            //querySelector : CSS 셀렉터 문법 사용 가능. 맨 위의 한 개 요소만 선택
             document.querySelector('.list-group').classList.toggle('show');
+        })
 
-            //querySelectorAll : 해당하는 걸 다 찾아서 배열 안에 담아줌. getElementsByClassName처럼 인덱싱으로 원하느 요소를 찾아 쓸 수 있음.
+        document.querySelector('#modalOpen #modalClose').addEventListener('click', () => {
+            document.querySelector('.black-bg').classList.toggle('show');
+        })
+
+        document.querySelector('#modalClose').addEventListener('click', () => {
+            document.querySelector('.black-bg').classList.toggle('show');
         })
     </script>
 </body>
