@@ -48,7 +48,6 @@
 
     <button class="btn btn-primary" id="modal-open">로그인</button>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
@@ -65,8 +64,10 @@
             document.querySelector('.black-bg').classList.toggle('show-modal');
         })
 
-        //전송버튼 누름
-        //input 입력한 값이 공백이면 alert
+        /*
+        * addEventLIstener('input', 콜백함수) : 선택된 input에 입력한 값이 바뀔 때 발생
+        * addEventLIstener('change', 콜백함수) : 선택된 input에 입력한 값이 바뀌고 포커스를 잃을 때 발생
+        */
         document.querySelector('form').addEventListener('submit', (e) => {
             if (document.getElementById('id').value == '' || document.getElementById('password').value == '') {
                 e.preventDefault()
@@ -78,7 +79,6 @@
                 alert("비밀번호 좀 길게 치쇼!")
             }
         })
-
     </script>
 </body>
 
