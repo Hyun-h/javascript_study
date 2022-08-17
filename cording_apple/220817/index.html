@@ -19,7 +19,7 @@
             <h4>Greeting!</h4>
             <form action="success.html">
                 <div class="my-3">
-                    <input type="text" id="id" class="form-control" placeholder="아이디">
+                    <input type="text" id="email" class="form-control" placeholder="이메일">
                 </div>
                 <div class="my-3">
                     <input type="password" id="password" class="form-control" placeholder="비밀번호">
@@ -76,14 +76,34 @@
         * addEventLIstener('change', 콜백함수) : 선택된 input에 입력한 값이 바뀌고 포커스를 잃을 때 발생
         */
         document.querySelector('form').addEventListener('submit', (e) => {
-            if (document.getElementById('id').value == '' || document.getElementById('password').value == '') {
-                e.preventDefault()
+            let emailValue = document.getElementById('email').value;
+            let passwordValue = document.getElementById('password').value;
+
+            //input 빈값 체크
+            if (emailValue == '' || passwordValue == '') {
                 alert("빈칸 채워주세요!")
+                e.preventDefault()
             }
 
-            if (document.getElementById('password').value.length <= 6) {
-                e.preventDefault()
+            //비밀번호 길이 체크
+            if (passwordValue.length <= 6) {
                 alert("비밀번호 좀 길게 치쇼!")
+                e.preventDefault()
+            }
+
+            //정규식 사용방법 : /정규식/.test('정규식으로 테스트 해 볼 문자'); -> true, false로 반환
+            //다양한 정규식 종류들은 찾아보자.
+
+            //email 정규식
+            if (/\S+@\S+\.\S+/.test(emailValue) === false) {
+                alert("이메일 형식 아님")
+                e.preventDefault()
+            }
+
+            //비밀번호 대문자 정규식
+            if (/[A-Z]/.test(passwordValue) === false) {
+                alert("비밀번호에 알파벳 대문자 없음")
+                e.preventDefault()
             }
         })
 
