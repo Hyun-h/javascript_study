@@ -4,10 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>220817 : 3, 6, 9 게임</title>
+    <title>220817 : 연습문제</title>
 </head>
 
 <body>
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="number" id="answer" />
+    <button id="send-answer">제출</button>
+
 
     <script>
         //3의 배수에서 박수를 치면 되는 게임
@@ -70,6 +74,41 @@
         playRealGame(6)
         playRealGame(9)
         playRealGame(11)
+
+        //이자율 계산하기
+        let deposit = 60000;
+        let futureDeposit = 0;
+
+        if (deposit > 50000) {
+            futureDeposit = deposit * 1.20 ** 2
+        } else {
+            futureDeposit = deposit * 1.15 ** 2
+        }
+
+        console.log(futureDeposit);
+
+        //커피 리필
+        let coffee = 360;
+        let coffeeTotal = 0;
+
+        coffeeTotal = coffee + coffee * 2 / 3 + coffee * 2 / 3 * 2 / 3
+        console.log(coffeeTotal);
+
+        //년도 맞추기 퀴즈
+        //제출 버튼 클릭
+        //답안 input value 확인
+        //만약에 정답 -> 성공!
+        //아니면 -> 멍청아!
+        let count = 0;
+        document.querySelector("#send-answer").addEventListener('click', () => {
+            count += 1
+            const answer = document.querySelector("#answer");
+            if (answer.value === '1335') {
+                alert('성공')
+            } else if (count >= 3 && answer.value !== '1335') {
+                alert('멍청아!');
+            }
+        })
     </script>
 </body>
 
