@@ -1,0 +1,31 @@
+.list-group {
+    display: none;
+}
+
+.black-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    padding: 30px;
+    /* 애니메이션 줄 때 display: none; 대용 none은 html에서 아예 없애버리므로 visibility 사용 */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.show {
+    display: block;
+}
+
+.show-modal {
+    visibility: visible;
+    opacity: 1;
+}
