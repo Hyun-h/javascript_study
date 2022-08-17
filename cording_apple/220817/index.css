@@ -21,6 +21,15 @@
     padding: 30px;
 }
 
+.main-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #adb5bd;
+    height: 20rem;
+}
+
 .show {
     display: block;
 }
