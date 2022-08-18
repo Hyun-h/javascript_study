@@ -1,0 +1,96 @@
+/* navbar */
+.list-group {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+/* 캐러셀 */
+.slide-section {
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-container {
+    width: 300vw;
+    display: flex;
+    transition: all 1s;
+}
+
+.slide-box {
+    width: 100vw;
+    height: calc(100vh - 56px);
+}
+
+.slide-box > img {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-button-container {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slide-button-container > span {
+    cursor: pointer;
+}
+
+.slide-button {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+
+/* 로그인 모달 */
+.black-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    padding: 30px;
+    /* 애니메이션 줄 때 display: none; 대용 none은 html에서 아예 없애버리므로 visibility 사용 */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+/* 메인 컨텐츠 */
+.main-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #adb5bd;
+    height: 20rem;
+}
+
+/* 이벤트용 클래스 */
+.show {
+    display: block;
+}
+
+.show-modal {
+    visibility: visible;
+    opacity: 1;
+}
