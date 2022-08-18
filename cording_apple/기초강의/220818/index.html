@@ -178,23 +178,16 @@
         //다음 버튼을 누르는 이벤트 발생
         let currentPhoto = 1;
         document.querySelector(".next").addEventListener('click', () => {
-            //지금 사진이 1이면
+            document.querySelector(".slide-container").style.transform = `translateX(-${currentPhoto}00vw)`;
             if (currentPhoto === 1) {
-                //2번 사진 보여주세요
-                document.querySelector(".slide-container").style.transform = "translateX(-100vw)";
-                //그 다음에 변수+1
                 currentPhoto += 1;
-            } else if (currentPhoto === 2) {
-                document.querySelector(".slide-container").style.transform = "translateX(-200vw)";
             }
         })
 
         document.querySelector(".before").addEventListener('click', () => {
+            document.querySelector(".slide-container").style.transform = `translateX(-${currentPhoto - 1}00vw)`;
             if (currentPhoto === 2) {
-                document.querySelector(".slide-container").style.transform = "translateX(-100vw)";
                 currentPhoto -= 1;
-            } else if (currentPhoto === 1) {
-                document.querySelector(".slide-container").style.transform = "translateX(0vw)";
             }
         })
     </script>
