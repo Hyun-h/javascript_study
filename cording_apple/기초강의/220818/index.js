@@ -18,7 +18,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let passwordValue = document.getElementById("password").value;
 
   //input 빈값 체크
-  if (emailValue == "" || passwordValue == "") {
+  if (emailValue.trim() === "" || passwordValue.trim() === "") {
     alert("빈칸 채워주세요!");
     e.preventDefault();
   }
