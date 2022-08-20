@@ -24,6 +24,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   }
 
   //비밀번호 길이 체크
+  //TODO: alert 함수로 뽑아보기
   if (passwordValue.length <= 6) {
     alert("비밀번호 좀 길게 치쇼!");
     e.preventDefault();
@@ -75,6 +76,7 @@ function timer() {
 }
 
 //캐러셀
+//TODO: transition 중복적인 코드 정리해보기. 코드 구조 다시 짜기
 document.querySelector(".slide-1").addEventListener("click", () => {
   document.querySelector(".slide-container").style.transform =
     "translateX(0vw)";
