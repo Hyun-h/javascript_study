@@ -14,8 +14,8 @@ document.querySelector("#modal-close").addEventListener("click", () => {
 
 //form 관련 이벤트
 document.querySelector("form").addEventListener("submit", (e) => {
-  let emailValue = document.getElementById("email").value;
-  let passwordValue = document.getElementById("password").value;
+  const emailValue = document.getElementById("email").value;
+  const passwordValue = document.getElementById("password").value;
 
   //input 빈값 체크
   if (emailValue.trim() === "" || passwordValue.trim() === "") {
