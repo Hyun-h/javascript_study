@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>220817 : 연습문제</title>
+    <title>연습문제 모음</title>
 </head>
 
 <body>
@@ -109,6 +109,28 @@
                 alert('멍청아!');
             }
         })
+
+        //함수에 분과 초를 차례로 파라미터로 입력하면 ms단위로 바꿔서 뱉어주는 함수
+        function setMs(min, sec) {
+            return (min * 60 + sec) * 1000;
+        }
+
+        console.log(setMs(1, 30));
+        console.log(setMs(2, 10));
+
+        //가격을 파라미터로 입력하면 10% 할인가를 뱉는 함수
+        function setDiscount(price, firstPurchase) {
+            if (firstPurchase === true) {
+                const total = ((price * 100) - (price * 10) - (1.5 * 100)) / 100
+                return total;
+            } else {
+                const total = ((price * 100) - (price * 10)) / 100
+                return total;
+            }
+        }
+
+        console.log(setDiscount(70, false));
+        console.log(setDiscount(10, true));
     </script>
 </body>
 
