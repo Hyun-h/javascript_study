@@ -17,29 +17,33 @@ document.querySelector('form').addEventListener('submit', (e) => {
     const emailValue = document.getElementById('email').value;
     const passwordValue = document.getElementById('password').value;
 
-    //TODO: alert 함수로 뽑아보기
+    function alertMsg(msg) {
+        alert(msg);
+        e.preventDefault();
+    }
+
     //input 빈값 체크
     if (emailValue.trim() === '' || passwordValue.trim() === '') {
-        alert('빈칸 채워주세요!');
-        e.preventDefault();
+        alertMsg('빈칸을 채워주세요!');
+        return;
     }
 
     //비밀번호 길이 체크
     if (passwordValue.length <= 6) {
-        alert('비밀번호 좀 길게 치쇼!');
-        e.preventDefault();
+        alertMsg('비밀번호 좀 길게 치쇼!');
+        return;
     }
 
     //email 정규식
     if (/\S+@\S+\.\S+/.test(emailValue) === false) {
-        alert('이메일 형식 아님');
-        e.preventDefault();
+        alertMsg('이메일 형식 아님');
+        return;
     }
 
     //비밀번호 대문자 정규식
     if (/[A-Z]/.test(passwordValue) === false) {
-        alert('비밀번호에 알파벳 대문자 없음');
-        e.preventDefault();
+        alertMsg('비밀번호에 알파벳 대문자 없음');
+        return;
     }
 });
 
