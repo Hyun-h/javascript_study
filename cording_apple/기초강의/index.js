@@ -80,29 +80,43 @@ function timer() {
 }
 
 //캐러셀
-//TODO: transition 중복적인 코드 정리해보기. 코드 구조 다시 짜기
-document.querySelector('.slide-1').addEventListener('click', () => {
-    document.querySelector('.slide-container').style.transform = 'translateX(0vw)';
-});
-document.querySelector('.slide-2').addEventListener('click', () => {
-    document.querySelector('.slide-container').style.transform = 'translateX(-100vw)';
-});
-document.querySelector('.slide-3').addEventListener('click', () => {
-    document.querySelector('.slide-container').style.transform = 'translateX(-200vw)';
+//각각의 버튼에도 재정의를 해야 앞뒤 버튼과 함께 썼을 때 버그가 생기지 않음. 늘 변경되어야 하는 변수이므로 제일 최상단으로 보내기.
+let currentPhoto = 0;
+const slideBtn = document.querySelectorAll('.slide-button');
+
+//반복적으로 쓰이는 translateX 뽑아서 함수로 만들기
+function setTranslate(moveVw) {
+    const slideContainer = document.querySelector('.slide-container');
+
+    slideContainer.style.transform = `translateX(-${moveVw}00vw)`;
+}
+
+//forEach로 배열이 반복문
+slideBtn.forEach((buttons, index) => {
+    buttons.addEventListener('click', () => {
+        //클릭 이벤트가 일어날 때마다 각 버튼에 인덱스와 currentPhoto 일치하게 변수 재정의
+        currentPhoto = index;
+        console.log('slideBtnCurrentPhoto', currentPhoto);
+        setTranslate(currentPhoto);
+    });
 });
 
-//다음 버튼을 누르는 이벤트 발생
-let currentPhoto = 1;
+//캐러셀 앞뒤 버튼
+//캐러샐이 무한으로 -가 되지 않도록 최저 숫자 부여
+const startNum = 0;
+//배열은 0부터 시작
+const LastNum = slideBtn.length - 1;
+
 document.querySelector('.next').addEventListener('click', () => {
-    document.querySelector('.slide-container').style.transform = `translateX(-${currentPhoto}00vw)`;
-    if (currentPhoto === 1) {
-        currentPhoto += 1;
+    if (LastNum > currentPhoto) {
+        currentPhoto++;
+        setTranslate(currentPhoto);
     }
 });
 
 document.querySelector('.before').addEventListener('click', () => {
-    document.querySelector('.slide-container').style.transform = `translateX(-${currentPhoto - 1}00vw)`;
-    if (currentPhoto === 2) {
-        currentPhoto -= 1;
+    if (startNum < currentPhoto) {
+        currentPhoto--;
+        setTranslate(currentPhoto);
     }
 });
