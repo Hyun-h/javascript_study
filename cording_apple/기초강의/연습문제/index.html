@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>220817 : 연습문제</title>
+</head>
+
+<body>
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="number" id="answer" />
+    <button id="send-answer">제출</button>
+
+
+    <script>
+        //3의 배수에서 박수를 치면 되는 게임
+        playGame = (gameNumber) => {
+            if (gameNumber % 3 === 0) {
+                console.log('박수')
+            } else {
+                console.log('통과')
+            }
+        }
+
+        playGame(6)
+        playGame(12)
+        playGame(11)
+
+        //3의 배수에서는 박수를 치지만, 9의 배수에서는 박수를 두 번 쳐야 함
+        playGame2 = (gameNumber2) => {
+            if (gameNumber2 % 9 === 0) {
+                console.log('박수2')
+            } else if (gameNumber2 % 3 === 0) {
+                console.log('박수')
+            } else {
+                console.log('통과')
+            }
+        }
+
+        playGame2(6)
+        playGame2(9)
+        playGame2(11)
+
+        //공인중개사 점수 입력할 경우 합격, 불합격 알려주기
+        setCalculationTest = (num1, num2) => {
+            if (num1 <= 40 || num2 <= 40) {
+                console.log(num1, num2, '불합격')
+            } else if (num1 + num2 >= 120) {
+                console.log(num1, num2, '합격')
+            } else {
+                console.log(num1, num2, '불합격')
+            }
+
+            //입력값이 아닐 때 경고창
+            if (num1 < 0 || num1 > 100 || num2 < 0 || num2 > 100) {
+                alert("입력값 아닌 걸로 장난치지 마쇼!")
+            }
+        }
+
+        setCalculationTest(70, 70)
+        setCalculationTest(30, 100)
+        setCalculationTest(50, 50)
+
+        //진짜 3, 6, 9
+        playRealGame = (gameNumber3) => {
+            if (gameNumber3 % 10 === 3 || gameNumber3 % 10 === 6 || gameNumber3 % 10 === 9) {
+                console.log('박수')
+            } else {
+                console.log('통과')
+            }
+        }
+
+        playRealGame(6)
+        playRealGame(9)
+        playRealGame(11)
+
+        //이자율 계산하기
+        let deposit = 60000;
+        let futureDeposit = 0;
+
+        if (deposit > 50000) {
+            futureDeposit = deposit * 1.20 ** 2
+        } else {
+            futureDeposit = deposit * 1.15 ** 2
+        }
+
+        console.log(futureDeposit);
+
+        //커피 리필
+        let coffee = 360;
+        let coffeeTotal = 0;
+
+        coffeeTotal = coffee + coffee * 2 / 3 + coffee * 2 / 3 * 2 / 3
+        console.log(coffeeTotal);
+
+        //년도 맞추기 퀴즈
+        //제출 버튼 클릭
+        //답안 input value 확인
+        //만약에 정답 -> 성공!
+        //아니면 -> 멍청아!
+        let count = 0;
+        document.querySelector("#send-answer").addEventListener('click', () => {
+            count += 1
+            const answer = document.querySelector("#answer");
+            if (answer.value === '1335') {
+                alert('성공')
+            } else if (count >= 3 && answer.value !== '1335') {
+                alert('멍청아!');
+            }
+        })
+    </script>
+</body>
+
+</html>
