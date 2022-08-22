@@ -3,6 +3,7 @@
     position: fixed;
     width: 100%;
     z-index: 4;
+    transition: all 1s;
 }
 
 .list-group {
@@ -121,4 +122,13 @@
 .show-modal {
     visibility: visible;
     opacity: 1;
+}
+
+.nav-active {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-active .navbar-brand {
+    color: #fff;
+    font-size: 1rem;
 }

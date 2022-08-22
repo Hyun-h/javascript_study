@@ -121,12 +121,28 @@ document.querySelector('.before').addEventListener('click', () => {
 });
 
 //scroll event
+//주의점 : 스크롤 이벤트리스너는 1초에 60번 이상 실행돼서 컴퓨터에게 부담을 줄 수 있음. 많이 쓰지 말 것
+//주의점 : 1초에 60번 이상 되다보니 중복으로 체크될 때도 있음
+
+//스크롤 내리면 네비게이션 폰트 작게, 배경색 변경
 window.addEventListener('scroll', () => {
-    //widow.scrollY === window.pageYOffset 세로 스크롤 얼마나 내려갔나 감지
-    //window.scrollTo(x, y) : 내가 원하는 좌표로 이동하기
-    //widow.scrollBy(x, y) : 현재 위치에서부터 강제로 좌표만큼 스크롤하기
-    console.log(window.scrollY);
+    if (window.scrollY >= 100) {
+        document.querySelector('.navbar').classList.add('nav-active');
+    } else {
+        document.querySelector('.navbar').classList.remove('nav-active');
+    }
 });
 
-//TODO: 스크롤바 내리면 네비게이션 로고 작게 만들기
-//TODO: 회원약관 끝까지 읽으면 alert 띄우기
+//회원약관 끝까지 읽으면 alert 띄우기
+const terms = document.querySelector('.terms');
+terms.addEventListener('scroll', () => {
+    //terms.scrollHeight : 스크롤 가능한 높이
+    //terms.scrollTop : 스크롤바 내린 높이
+    //terms.clientHeight : 눈에 보이는 div 박스 높이
+    if (terms.scrollTop + terms.clientHeight >= terms.scrollHeight - 10) {
+        alert('약관에 동의하십니까?');
+    }
+});
+
+//TODO: 스크롤 이벤트 중복 방지하는 기능
+//TODO: 스크롤 이벤트가 내려갈 때 진척도 표현해주는 UI 구현
