@@ -119,3 +119,14 @@ document.querySelector('.before').addEventListener('click', () => {
         setTranslate(currentPhoto);
     }
 });
+
+//scroll event
+window.addEventListener('scroll', () => {
+    //widow.scrollY === window.pageYOffset 세로 스크롤 얼마나 내려갔나 감지
+    //window.scrollTo(x, y) : 내가 원하는 좌표로 이동하기
+    //widow.scrollBy(x, y) : 현재 위치에서부터 강제로 좌표만큼 스크롤하기
+    console.log(window.scrollY);
+});
+
+//TODO: 스크롤바 내리면 네비게이션 로고 작게 만들기
+//TODO: 회원약관 끝까지 읽으면 alert 띄우기

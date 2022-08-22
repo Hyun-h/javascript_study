@@ -1,4 +1,10 @@
 /* navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+}
+
 .list-group {
     display: none;
     position: absolute;
@@ -10,6 +16,11 @@
     cursor: pointer;
 }
 
+.contents-wrapper {
+    position: relative;
+    top: 56px;
+}
+
 /* 캐러셀 */
 .slide-section {
     overflow: hidden;
@@ -18,13 +29,13 @@
 
 .slide-container {
     width: 300vw;
+    height: calc(100vh - 56px);
     display: flex;
     transition: all 1s;
 }
 
 .slide-box {
     width: 100vw;
-    height: calc(100vh - 56px);
 }
 
 .slide-box > img {
@@ -77,12 +88,29 @@
 
 /* 메인 컨텐츠 */
 .main-bg {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background: #adb5bd;
     height: 20rem;
+}
+
+/* 약관 */
+.terms-container {
+    background-color: cornsilk;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.terms {
+    width: 200px;
+    height: 100px;
+    overflow-y: scroll;
+    background-color: wheat;
 }
 
 /* 이벤트용 클래스 */

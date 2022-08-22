@@ -54,35 +54,51 @@
     <li class="list-group-item">And a fifth one</li>
   </ul>
 
-  <!-- 메인 캐러셀 -->
-  <section class="slide-section">
-    <div class="slide-container">
-      <div class="slide-box">
-        <img src="car1.png" alt="bus" />
+  <div class="contents-wrapper">
+    <!-- 메인 캐러셀 -->
+    <section class="slide-section">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="car1.png" alt="bus" />
+        </div>
+        <div class="slide-box">
+          <img src="car2.png" alt="bike" />
+        </div>
+        <div class="slide-box">
+          <img src="car3.png" alt="car" />
+        </div>
       </div>
-      <div class="slide-box">
-        <img src="car2.png" alt="bike" />
+      <div class="slide-button-container">
+        <span class="material-symbols-outlined before">arrow_back_ios</span>
+        <div class="slide-button"></div>
+        <div class="slide-button"></div>
+        <div class="slide-button"></div>
+        <span class="material-symbols-outlined next">arrow_forward_ios</span>
       </div>
-      <div class="slide-box">
-        <img src="car3.png" alt="car" />
-      </div>
-    </div>
-    <div class="slide-button-container">
-      <span class="material-symbols-outlined before">arrow_back_ios</span>
-      <div class="slide-button"></div>
-      <div class="slide-button"></div>
-      <div class="slide-button"></div>
-      <span class="material-symbols-outlined next">arrow_forward_ios</span>
-    </div>
-  </section>
+    </section>
 
-  <!-- 컨텐츠 -->
-  <div class="main-bg">
-    <p class="fs-4">shirts on sale</p>
-    <button class="btn btn-primary" id="modal-open">로그인</button>
-  </div>
-  <div class="alert alert-danger">
-    <span>5</span>초 이내 구매 시 사은품 증정!
+    <!-- 컨텐츠 -->
+    <section class="main-bg">
+      <p class="fs-4">shirts on sale</p>
+      <button class="btn btn-primary" id="modal-open">로그인</button>
+    </section>
+
+    <!-- 대충 약관 -->
+    <section class="terms-container">
+      <h2>대충 약관</h2>
+      <div class="terms">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto temporibus atque consectetur porro harum
+        perspiciatis modi voluptatum, maiores quasi sunt recusandae itaque voluptas ullam iste est ea minus? Veritatis,
+        voluptate?
+      </div>
+    </section>
+
+    <div class="alert alert-danger">
+      <span>5</span>초 이내 구매 시 사은품 증정!
+    </div>
+
+    <div style="height: 1000px"></div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
