@@ -96,7 +96,6 @@ slideBtn.forEach((buttons, index) => {
     buttons.addEventListener('click', () => {
         //클릭 이벤트가 일어날 때마다 각 버튼에 인덱스와 currentPhoto 일치하게 변수 재정의
         currentPhoto = index;
-        console.log('slideBtnCurrentPhoto', currentPhoto);
         setTranslate(currentPhoto);
     });
 });
