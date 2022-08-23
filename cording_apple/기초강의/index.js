@@ -4,12 +4,28 @@ document.querySelector('.navbar-toggler').addEventListener('click', () => {
 });
 
 //login modal 열고 닫기
+const modalBg = document.querySelector('.black-bg');
+
 document.querySelector('#modal-open').addEventListener('click', () => {
-    document.querySelector('.black-bg').classList.toggle('show-modal');
+    modalBg.classList.toggle('show-modal');
 });
 
 document.querySelector('#modal-close').addEventListener('click', () => {
-    document.querySelector('.black-bg').classList.toggle('show-modal');
+    modalBg.classList.toggle('show-modal');
+});
+
+//modal background 클릭했을 때도 모달 닫히게 하기
+//event bubbling : 브라우저는 레이아웃이 여러겹 겹친 형태여서 하나가 클릭되면 최상위요소까지 누른걸로 인식함
+modalBg.addEventListener('click', (e) => {
+    //event bubbling 때 쓰면 유용한 함수 -> 파라미터에 e 꼭 넣을 것
+    //e.target : 유저가 실제로 누른 것
+    //e.currentTarget : 이벤트리스너가 달린 곳. 여기 기능에서 썼을 때 this 로 대체 가능.
+    //e.preventDefault(); : 클릭 안한 것처럼 기본동작 막아주세요!
+    //e.stopPropagation() : 상위 요소로 이벤트 버블링 막아주세요!
+
+    if (e.target === modalBg) {
+        modalBg.classList.remove('show-modal');
+    }
 });
 
 //form 관련 이벤트
@@ -156,13 +172,16 @@ terms.addEventListener('scroll', () => {
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabContents = document.querySelectorAll('.tab-content');
 
+//이벤트 내부에서 반복되는 forEach 분리해서 함수로 만들기
 function isTabActive(selectors, className) {
     selectors.forEach((item) => {
         item.classList.remove(className);
     });
 }
 
+//tab nodeList 반복문
 tabButtons.forEach((button, index) => {
+    //nodeList 배열의 요소가 클릭되는 이벤트
     button.addEventListener('click', () => {
         isTabActive(tabButtons, 'orange');
         button.classList.add('orange');
