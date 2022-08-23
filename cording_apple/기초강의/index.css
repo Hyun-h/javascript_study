@@ -114,6 +114,15 @@
     background-color: wheat;
 }
 
+/* 스크롤 진척도 표시 */
+.scroll_ui {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+    height: 3px;
+}
+
 /* 이벤트용 클래스 */
 .show {
     display: block;

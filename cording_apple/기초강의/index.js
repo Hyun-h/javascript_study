@@ -124,13 +124,18 @@ document.querySelector('.before').addEventListener('click', () => {
 //주의점 : 스크롤 이벤트리스너는 1초에 60번 이상 실행돼서 컴퓨터에게 부담을 줄 수 있음. 많이 쓰지 말 것
 //주의점 : 1초에 60번 이상 되다보니 중복으로 체크될 때도 있음
 
-//스크롤 내리면 네비게이션 폰트 작게, 배경색 변경
 window.addEventListener('scroll', () => {
+    //스크롤 내리면 네비게이션 폰트 작게, 배경색 변경
     if (window.scrollY >= 100) {
         document.querySelector('.navbar').classList.add('nav-active');
     } else {
         document.querySelector('.navbar').classList.remove('nav-active');
     }
+
+    //페이지 내릴 때 얼마나 읽어주는지 알려주는 UI
+    const html = document.querySelector('html');
+    const scrollPercent = Math.floor(((window.scrollY + html.clientHeight) / html.scrollHeight) * 100);
+    document.querySelector('.scroll_ui').style.width = `${scrollPercent}vw`;
 });
 
 //회원약관 끝까지 읽으면 alert 띄우기
@@ -146,5 +151,3 @@ terms.addEventListener('scroll', () => {
         alertOnce = true;
     }
 });
-
-//TODO: 스크롤 이벤트가 내려갈 때 진척도 표현해주는 UI 구현
