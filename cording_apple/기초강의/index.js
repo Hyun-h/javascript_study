@@ -134,15 +134,17 @@ window.addEventListener('scroll', () => {
 });
 
 //회원약관 끝까지 읽으면 alert 띄우기
+//스크롤 이벤트가 발생했을 때 alert 한 번만 띄우기
+let alertOnce = false;
 const terms = document.querySelector('.terms');
 terms.addEventListener('scroll', () => {
     //terms.scrollHeight : 스크롤 가능한 높이
     //terms.scrollTop : 스크롤바 내린 높이
     //terms.clientHeight : 눈에 보이는 div 박스 높이
-    if (terms.scrollTop + terms.clientHeight >= terms.scrollHeight - 10) {
+    if (terms.scrollTop + terms.clientHeight >= terms.scrollHeight - 10 && alertOnce === false) {
         alert('약관에 동의하십니까?');
+        alertOnce = true;
     }
 });
 
-//TODO: 스크롤 이벤트 중복 방지하는 기능
 //TODO: 스크롤 이벤트가 내려갈 때 진척도 표현해주는 UI 구현
