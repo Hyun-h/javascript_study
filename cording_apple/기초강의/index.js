@@ -151,3 +151,23 @@ terms.addEventListener('scroll', () => {
         alertOnce = true;
     }
 });
+
+//tab menu
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+
+function isTabActive(selectors, className) {
+    selectors.forEach((item) => {
+        item.classList.remove(className);
+    });
+}
+
+tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        isTabActive(tabButtons, 'orange');
+        button.classList.add('orange');
+
+        isTabActive(tabContents, 'show');
+        tabContents[index].classList.add('show');
+    });
+});
