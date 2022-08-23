@@ -120,13 +120,14 @@
 
         //가격을 파라미터로 입력하면 10% 할인가를 뱉는 함수
         function setDiscount(price, firstPurchase) {
-            if (firstPurchase === true) {
-                const total = ((price * 100) - (price * 10) - (1.5 * 100)) / 100
-                return total;
-            } else {
-                const total = ((price * 100) - (price * 10)) / 100
-                return total;
-            }
+            //true, false만 판단하고 있으므로, if는 true를 기준으로 판단하는 걸 이용해서 아래와 같이 변경
+            //return 하는 변수는 하나인데 조건이 달라지므로 아래와 같이 코드를 간략하게 작성할 수 있음
+            //돈을 계산하는 예시라 소숫점 관련 내장함수를 사용하지 않고 정확한 계산을 위해 아래와 같이 계산 진행.
+            const total = firstPurchase
+                ? ((price * 100) - (price * 10) - (1.5 * 100)) / 100
+                : ((price * 100) - (price * 10)) / 100
+
+            return total;
         }
 
         console.log(setDiscount(70, false));
