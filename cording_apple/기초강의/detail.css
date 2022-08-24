@@ -1,3 +1,8 @@
+/* select */
+.shirt-select {
+    display: none;
+}
+
 /* tab menu */
 ul.list {
     list-style-type: none;
@@ -34,5 +39,5 @@ ul.list::after {
 }
 
 .show {
-    display: block;
+    display: block !important;
 }

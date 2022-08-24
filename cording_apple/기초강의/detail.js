@@ -48,3 +48,17 @@ function setProduct(id) {
 for (let i = 0; i < products.length; i++) {
     setProduct(i);
 }
+
+// select
+const productSelect = document.querySelector('.product-select');
+const shirtSelect = document.querySelector('.shirt-select');
+
+productSelect.addEventListener('change', (e) => {
+    shirtSelect.classList.remove('show');
+
+    //productSelect.options[productSelect.selectedIndex].value
+    //event 관련 함수 쓰는 걸 떠올려봅시다
+    if (e.currentTarget.value == '셔츠') {
+        shirtSelect.classList.add('show');
+    }
+});
