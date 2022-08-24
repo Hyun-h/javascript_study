@@ -20,3 +20,31 @@ tabButtons.forEach((button, index) => {
         tabContents[index].classList.add('show');
     });
 });
+
+//object에서 자료 뽑아서 변경
+const car = {
+    name: '소나타',
+    price: [50000, 20000, 40000],
+};
+
+document.getElementById('product-name').innerText = car.name;
+document.getElementById('product-price').innerText = car.price[0];
+
+//products 데이터를 html에 바인딩하기
+const products = [
+    { id: 0, price: 70000, title: 'Blossom Dress' },
+    { id: 1, price: 50000, title: 'Springfield Shirt' },
+    { id: 2, price: 60000, title: 'Black Monastery' },
+];
+
+const title = document.querySelectorAll('.card-body > h5');
+const price = document.querySelectorAll('.card-body > p');
+
+function setProduct(id) {
+    title[id].innerText = products[id].title;
+    price[id].innerText = `가격 : ${products[id].price}`;
+}
+
+for (let i = 0; i < products.length; i++) {
+    setProduct(i);
+}
