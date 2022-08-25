@@ -51,14 +51,47 @@ for (let i = 0; i < products.length; i++) {
 
 // select
 const productSelect = document.querySelector('.product-select');
-const shirtSelect = document.querySelector('.shirt-select');
+const optionSelect = document.querySelector('.option-select');
 
 productSelect.addEventListener('change', (e) => {
-    shirtSelect.classList.remove('show');
+    //option-select가 생기지 않는 하나의 경우를 참으로 빼서 삼항연산자로 처리
+    e.currentTarget.value == '모자' ? optionSelect.classList.remove('show') : optionSelect.classList.add('show');
 
-    //productSelect.options[productSelect.selectedIndex].value
-    //event 관련 함수 쓰는 걸 떠올려봅시다
+    //option이 바지일 때 option html 교체
     if (e.currentTarget.value == '셔츠') {
-        shirtSelect.classList.add('show');
+        const shirtOption = `<option>95</option>
+        <option>100</option>`;
+
+        optionSelect.innerHTML = '';
+        optionSelect.innerHTML = shirtOption;
+    }
+
+    if (e.currentTarget.value == '바지') {
+        //밑에처럼 짜버리면 확장성 부족해짐. js에서 html 생성하는 방법을 배우는 이유는 확장성 때문임.
+        // optionSelect.options[0].innerHTML = '28';
+        // optionSelect.options[1].innerHTML = '30';
+        const pentsOption = `<option>28</option>
+        <option>30</option>`;
+
+        optionSelect.innerHTML = '';
+        optionSelect.innerHTML = pentsOption;
     }
 });
+
+//자바스크립트로 html 생성
+const test = document.getElementById('test');
+
+//방법1 => 추천
+//document.createElement('p') : ()안에 요소를 만들어주세요!
+const createPTag = document.createElement('p');
+createPTag.innerHTML = '안녕!!!!';
+//필요하다면 createPTag.classList.add()로 class 추가도 가능
+//selector.appendChild() : selector로 찾은 요소에 ()를 추가해주세영!
+test.appendChild(createPTag);
+
+//방법2
+const pHello = '<p>안녕!</p>';
+//selector.insertAdjacentHTML() : html에 괄호 안에 걸 추가해주세요!
+//beforeend : 안쪽 제일 아래에 추가해주세요
+//그냥 때려박고 싶을 때는 test.innerHTML = pHello;
+test.insertAdjacentHTML('beforeend', pHello);
