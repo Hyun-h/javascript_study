@@ -45,11 +45,19 @@ function setProduct(id) {
     price[id].innerText = `가격 : ${products[id].price}`;
 }
 
+//object에서 쓰이는 반복문
+for (let key in products[0]) {
+    console.log('key', key);
+    console.log('products[0][key]', products[0][key]);
+}
+
 for (let i = 0; i < products.length; i++) {
     setProduct(i);
 }
 
 // select
+const pantsSizeList = [28, 30, 32, 34];
+const shirtSizeList = [95, 100, 105, 110];
 const productSelect = document.querySelector('.product-select');
 const optionSelect = document.querySelector('.option-select');
 
@@ -57,24 +65,20 @@ productSelect.addEventListener('change', (e) => {
     //option-select가 생기지 않는 하나의 경우를 참으로 빼서 삼항연산자로 처리
     e.currentTarget.value == '모자' ? optionSelect.classList.remove('show') : optionSelect.classList.add('show');
 
-    //option이 바지일 때 option html 교체
+    //option이 셔츠일 때 option
     if (e.currentTarget.value == '셔츠') {
-        const shirtOption = `<option>95</option>
-        <option>100</option>`;
-
         optionSelect.innerHTML = '';
-        optionSelect.innerHTML = shirtOption;
+        shirtSizeList.forEach((shirtSize) => {
+            optionSelect.innerHTML += `<option>${shirtSize}</option>`;
+        });
     }
 
+    //option이 바지일 때 option
     if (e.currentTarget.value == '바지') {
-        //밑에처럼 짜버리면 확장성 부족해짐. js에서 html 생성하는 방법을 배우는 이유는 확장성 때문임.
-        // optionSelect.options[0].innerHTML = '28';
-        // optionSelect.options[1].innerHTML = '30';
-        const pentsOption = `<option>28</option>
-        <option>30</option>`;
-
         optionSelect.innerHTML = '';
-        optionSelect.innerHTML = pentsOption;
+        pantsSizeList.forEach((pantsSize) => {
+            optionSelect.innerHTML += `<option>${pantsSize}</option>`;
+        });
     }
 });
 
