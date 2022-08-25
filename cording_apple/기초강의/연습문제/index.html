@@ -132,6 +132,43 @@
 
         console.log(setDiscount(70, false));
         console.log(setDiscount(10, true));
+
+        //Array에서 철수라는 자료를 찾기
+        const attendance = ['흥민', '영희', '철수', '철수', '재석'];
+
+        function findName(checkName) {
+            attendance.forEach((el) => {
+                if (el === checkName)
+                    return console.log('있어요');
+            })
+        }
+
+        findName('철수');
+        findName('명수');
+
+        //구구단
+        for (let i = 2; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                console.log(i * j)
+            }
+            console.log('------', i)
+        }
+
+        //평균점수 계산기
+        function setAverageScore(scoreArr, novScore) {
+            let sum = 0;
+            scoreArr.forEach((el) => {
+                sum += el;
+            })
+            const average = sum / scoreArr.length;
+
+            average > novScore
+                ? console.log(`평균보다 ${average - novScore}점이 떨어졌네요. 재수 추천`)
+                : console.log(`평균보다 ${novScore - average}점이 올랐네요.`)
+        }
+
+        setAverageScore([10, 20, 30, 40, 50], 40);
+        setAverageScore([40, 40, 40], 20);
     </script>
 </body>
 
