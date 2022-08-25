@@ -37,22 +37,22 @@ const products = [
     { id: 2, price: 60000, title: 'Black Monastery' },
 ];
 
-const title = document.querySelectorAll('.card-body > h5');
-const price = document.querySelectorAll('.card-body > p');
+//자바스크립트로 상품 목록 카드 생성하기
+function setCard(id) {
+    const card = `
+    <div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5>${products[id].title}</h5>
+        <p>가격 : ${products[id].price}</p>
+    </div>
+    `;
 
-function setProduct(id) {
-    title[id].innerText = products[id].title;
-    price[id].innerText = `가격 : ${products[id].price}`;
+    return card;
 }
 
-//object에서 쓰이는 반복문
-for (let key in products[0]) {
-    console.log('key', key);
-    console.log('products[0][key]', products[0][key]);
-}
-
-for (let i = 0; i < products.length; i++) {
-    setProduct(i);
+const row = document.querySelector('.row');
+for (let id = 0; id < products.length; id++) {
+    row.innerHTML += setCard(id);
 }
 
 // select
