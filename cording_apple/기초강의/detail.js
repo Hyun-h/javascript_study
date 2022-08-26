@@ -30,6 +30,11 @@ const car = {
 document.getElementById('product-name').innerText = car.name;
 document.getElementById('product-price').innerText = car.price[0];
 
+/*
+TODO: 
+응용!
+더보기를 눌러서 목록이 불러와졌을 때도 정렬 기능 3가지가 작동하게 하기
+*/
 //products 데이터를 html에 바인딩하기
 const products = [
     { id: 0, price: 70000, title: 'Blossom Dress' },
@@ -85,16 +90,22 @@ more.addEventListener('click', () => {
     }
 });
 
+/*
+TODO:
+products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 보기 만들기
+*/
 //가격 오름차순
-const sortBtn = document.getElementById('sort');
-sortBtn.addEventListener('click', () => {
-    const sortProduct = products.sort((a, b) => {
-        //sort도 forEach깉이 루프를 돌면서 두 파라미터를 비교하는 형태라 object형태에서 꺼내쓸 수 있는듯
-        return a.price - b.price;
-    });
+const sortBtn = document.querySelector('.sort_container');
+sortBtn.addEventListener('click', (e) => {
+    console.log(e.currentTarget.dataset.sort);
+    console.log(e.current.dataset.sort);
+    // const sortProduct = products.sort((a, b) => {
+    //     //sort도 forEach깉이 루프를 돌면서 두 파라미터를 비교하는 형태라 object형태에서 꺼내쓸 수 있는듯
+    //     return a.price - b.price;
+    // });
 
-    document.querySelector('.row').innerHTML = '';
-    drawCard(sortProduct);
+    // document.querySelector('.row').innerHTML = '';
+    // drawCard(sortProduct);
 });
 
 // select
@@ -143,6 +154,7 @@ const pHello = '<p>안녕!</p>';
 test.insertAdjacentHTML('beforeend', pHello);
 
 //sort()
+//주의! sort는 원본을 건들여버림
 const arr1 = [7, 3, 5, 6, 2];
 const arr2 = ['이', '히', '기', '디', '비'];
 
