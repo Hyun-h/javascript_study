@@ -90,22 +90,45 @@ more.addEventListener('click', () => {
     }
 });
 
-/*
-TODO:
-products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 보기 만들기
-*/
+//products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 기능 구현
 //가격 오름차순
-const sortBtn = document.querySelector('.sort_container');
-sortBtn.addEventListener('click', (e) => {
-    console.log(e.currentTarget.dataset.sort);
-    console.log(e.current.dataset.sort);
-    // const sortProduct = products.sort((a, b) => {
-    //     //sort도 forEach깉이 루프를 돌면서 두 파라미터를 비교하는 형태라 object형태에서 꺼내쓸 수 있는듯
-    //     return a.price - b.price;
-    // });
+const sortBtns = document.querySelector('.sort_container');
+sortBtns.addEventListener('click', (e) => {
+    console.log(e.target.dataset.sort);
 
-    // document.querySelector('.row').innerHTML = '';
-    // drawCard(sortProduct);
+    //상품목록 초기화
+    document.querySelector('.row').innerHTML = '';
+
+    //sort는 원본배열을 바꾸는 함수이므로 복사한 배열 추가
+    const newProducts = [...products];
+
+    if (e.target.dataset.sort === 'price') {
+        //가격 오름차순
+        const ascendingPrice = newProducts.sort((a, b) => {
+            return a.price - b.price;
+        });
+
+        drawCard(ascendingPrice);
+    }
+
+    if (e.target.dataset.sort === 'product') {
+        const ascendingTitle = newProducts.sort(function (a, b) {
+            //상품명 오름차순
+            if (a.title > b.title) return 1;
+            if (a.title < b.title) return -1;
+            if (a.title === b.title) return 0;
+        });
+
+        drawCard(ascendingTitle);
+    }
+
+    if (e.target.dataset.sort === 'under-price') {
+        const underPrice = products.filter((arr) => {
+            return arr.price <= 60000;
+        });
+
+        drawCard(underPrice);
+    }
 });
 
 // select
@@ -134,43 +157,3 @@ productSelect.addEventListener('change', (e) => {
         });
     }
 });
-
-//자바스크립트로 html 생성
-const test = document.getElementById('test');
-
-//방법1 => 추천
-//document.createElement('p') : ()안에 요소를 만들어주세요!
-const createPTag = document.createElement('p');
-createPTag.innerHTML = '안녕!!!!';
-//필요하다면 createPTag.classList.add()로 class 추가도 가능
-//selector.appendChild() : selector로 찾은 요소에 ()를 추가해주세영!
-test.appendChild(createPTag);
-
-//방법2
-const pHello = '<p>안녕!</p>';
-//selector.insertAdjacentHTML() : html에 괄호 안에 걸 추가해주세요!
-//beforeend : 안쪽 제일 아래에 추가해주세요
-//그냥 때려박고 싶을 때는 test.innerHTML = pHello;
-test.insertAdjacentHTML('beforeend', pHello);
-
-//sort()
-//주의! sort는 원본을 건들여버림
-const arr1 = [7, 3, 5, 6, 2];
-const arr2 = ['이', '히', '기', '디', '비'];
-
-//return이 양수면 a를 오른쪽으로, 음수면 b를 오른쪽으로 정렬
-//return a - b : 오름차순
-//return a - b : 내림차순
-arr1.sort(function (a, b) {
-    return b - a;
-});
-
-//문자 내림차순
-arr2.sort(function (a, b) {
-    if (a < b) return 1;
-    if (a > b) return -1;
-    if (a === b) return 0;
-});
-
-console.log(arr1);
-console.log(arr2);
