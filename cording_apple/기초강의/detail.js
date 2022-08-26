@@ -61,8 +61,15 @@ function drawCard(data) {
 drawCard(products);
 
 //더보기 클릭했을 때 상품 카드 더 나오게 하기
-document.getElementById('more').addEventListener('click', () => {
-    fetch('https://codingapple1.github.io/js/more1.json')
+const more = document.getElementById('more');
+
+let moreClick = 0;
+more.addEventListener('click', () => {
+    //클릭할 때마다 횟수 올라감
+    moreClick++;
+
+    //클릭횟수를 저장한 변수를 api주소 쪽에 넣어서 다른 api 호출하게 함
+    fetch(`https://codingapple1.github.io/js/more${moreClick}.json`)
         .then((res) => res.json())
         .then(function (data) {
             console.log(data);
@@ -71,6 +78,11 @@ document.getElementById('more').addEventListener('click', () => {
         .catch(function (error) {
             console.log('실패함');
         });
+
+    //2번 카운팅 되면 버튼 사라지게 하기
+    if (moreClick === 2) {
+        document.getElementById('more').style.display = 'none';
+    }
 });
 
 // select
