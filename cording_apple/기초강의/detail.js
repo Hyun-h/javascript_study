@@ -85,6 +85,18 @@ more.addEventListener('click', () => {
     }
 });
 
+//가격 오름차순
+const sortBtn = document.getElementById('sort');
+sortBtn.addEventListener('click', () => {
+    const sortProduct = products.sort((a, b) => {
+        //sort도 forEach깉이 루프를 돌면서 두 파라미터를 비교하는 형태라 object형태에서 꺼내쓸 수 있는듯
+        return a.price - b.price;
+    });
+
+    document.querySelector('.row').innerHTML = '';
+    drawCard(sortProduct);
+});
+
 // select
 const pantsSizeList = [28, 30, 32, 34];
 const shirtSizeList = [95, 100, 105, 110];
@@ -129,3 +141,24 @@ const pHello = '<p>안녕!</p>';
 //beforeend : 안쪽 제일 아래에 추가해주세요
 //그냥 때려박고 싶을 때는 test.innerHTML = pHello;
 test.insertAdjacentHTML('beforeend', pHello);
+
+//sort()
+const arr1 = [7, 3, 5, 6, 2];
+const arr2 = ['이', '히', '기', '디', '비'];
+
+//return이 양수면 a를 오른쪽으로, 음수면 b를 오른쪽으로 정렬
+//return a - b : 오름차순
+//return a - b : 내림차순
+arr1.sort(function (a, b) {
+    return b - a;
+});
+
+//문자 내림차순
+arr2.sort(function (a, b) {
+    if (a < b) return 1;
+    if (a > b) return -1;
+    if (a === b) return 0;
+});
+
+console.log(arr1);
+console.log(arr2);
