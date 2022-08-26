@@ -37,7 +37,7 @@ const products = [
     { id: 2, price: 60000, title: 'Black Monastery' },
 ];
 
-//자바스크립트로 상품 목록 카드 생성하기
+//카드 UI
 function setCard(product) {
     const card = `
     <div class="col-sm-4">
@@ -50,9 +50,27 @@ function setCard(product) {
     return card;
 }
 
-const row = document.querySelector('.row');
-products.forEach((product) => {
-    row.innerHTML += setCard(product);
+//데이터로 카드 생성하기
+function drawCard(data) {
+    const row = document.querySelector('.row');
+    data.forEach((product) => {
+        row.innerHTML += setCard(product);
+    });
+}
+
+drawCard(products);
+
+//더보기 클릭했을 때 상품 카드 더 나오게 하기
+document.getElementById('more').addEventListener('click', () => {
+    fetch('https://codingapple1.github.io/js/more1.json')
+        .then((res) => res.json())
+        .then(function (data) {
+            console.log(data);
+            drawCard(data);
+        })
+        .catch(function (error) {
+            console.log('실패함');
+        });
 });
 
 // select
