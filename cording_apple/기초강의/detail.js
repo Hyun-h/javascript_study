@@ -91,37 +91,32 @@ more.addEventListener('click', () => {
 });
 
 //products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 기능 구현
-//가격 오름차순
 const sortBtns = document.querySelector('.sort_container');
 sortBtns.addEventListener('click', (e) => {
-    console.log(e.target.dataset.sort);
-
     //상품목록 초기화
     document.querySelector('.row').innerHTML = '';
 
     //sort는 원본배열을 바꾸는 함수이므로 복사한 배열 추가
     const newProducts = [...products];
 
-    if (e.target.dataset.sort === 'price') {
-        //가격 오름차순
-        const ascendingPrice = newProducts.sort((a, b) => {
+    //장랼
+    const ascending = newProducts.sort((a, b) => {
+        if (e.target.dataset.sort === 'price') {
+            //기갹 정렬
             return a.price - b.price;
-        });
+        }
 
-        drawCard(ascendingPrice);
-    }
-
-    if (e.target.dataset.sort === 'product') {
-        const ascendingTitle = newProducts.sort(function (a, b) {
-            //상품명 오름차순
-            if (a.title > b.title) return 1;
-            if (a.title < b.title) return -1;
+        if (e.target.dataset.sort === 'product') {
+            //상품명 내림차순
+            if (a.title < b.title) return 1;
+            if (a.title > b.title) return -1;
             if (a.title === b.title) return 0;
-        });
+        }
+    });
 
-        drawCard(ascendingTitle);
-    }
+    drawCard(ascending);
 
+    //가격 필터
     if (e.target.dataset.sort === 'under-price') {
         const underPrice = products.filter((arr) => {
             return arr.price <= 60000;
