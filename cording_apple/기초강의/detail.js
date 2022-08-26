@@ -38,12 +38,12 @@ const products = [
 ];
 
 //자바스크립트로 상품 목록 카드 생성하기
-function setCard(id) {
+function setCard(product) {
     const card = `
     <div class="col-sm-4">
         <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${products[id].title}</h5>
-        <p>가격 : ${products[id].price}</p>
+        <h5>${product.title}</h5>
+        <p>가격 : ${product.price}</p>
     </div>
     `;
 
@@ -51,9 +51,9 @@ function setCard(id) {
 }
 
 const row = document.querySelector('.row');
-for (let id = 0; id < products.length; id++) {
-    row.innerHTML += setCard(id);
-}
+products.forEach((product) => {
+    row.innerHTML += setCard(product);
+});
 
 // select
 const pantsSizeList = [28, 30, 32, 34];
