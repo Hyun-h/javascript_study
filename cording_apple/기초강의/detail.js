@@ -34,6 +34,15 @@ document.getElementById("product-price").innerText = car.price[0];
 TODO: 
 응용!
 더보기를 눌러서 목록이 불러와졌을 때도 정렬 기능 3가지가 작동하게 하기
+
+1. fetchData 분리하기
+2. products와 fetchData를 그대로 가지고 와서 쓰지 않게 하기.
+3. 빈배열 생성
+4. 빈배열 안에 products 복사해서 넣기
+5. 클릭이 되어서 (총 2번) data를 fetch 할 때마다 fetch 한 데이터를 빈배열 안에 넣기.
+6. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 생성하기
+7. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 정렬하는 기능 구현
+8. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 필터하는 기능 구현
 */
 //products 데이터를 html에 바인딩하기
 const products = [
@@ -86,17 +95,6 @@ more.addEventListener("click", () => {
   //클릭할 때마다 횟수 올라감
   moreClick++;
   fetchData(moreClick);
-
-  //클릭횟수를 저장한 변수를 api주소 쪽에 넣어서 다른 api 호출하게 함
-  //   fetch(`https://codingapple1.github.io/js/more${moreClick}.json`)
-  //     .then((res) => res.json())
-  //     .then(function (data) {
-  //       console.log(data);
-  //       drawCard(data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log("실패함");
-  //     });
 
   //2번 카운팅 되면 버튼 사라지게 하기
   if (moreClick === 2) {
