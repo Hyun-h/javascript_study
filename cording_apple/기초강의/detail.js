@@ -44,12 +44,43 @@ TODO:
 7. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 정렬하는 기능 구현
 8. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 필터하는 기능 구현
 */
-//products 데이터를 html에 바인딩하기
 const products = [
   { id: 0, price: 70000, title: "Blossom Dress" },
   { id: 1, price: 50000, title: "Springfield Shirt" },
   { id: 2, price: 60000, title: "Black Monastery" },
 ];
+
+let productData = [...products];
+
+function fetchData(moreClick) {
+  //클릭횟수를 저장한 변수를 api주소 쪽에 넣어서 다른 api 호출하게 함
+  fetch(`https://codingapple1.github.io/js/more${moreClick}.json`)
+    .then((res) => res.json())
+    .then(function (data) {
+      drawCard(data); //모든 자바스크립트 코드가 실행되고 나서 렌더링이 되서 그려지는 결과가 나오는거고
+      productData = [...productData, ...data]; //얘는 코드가 실행 중이기 때문에, 한 번 클릭했음에도  ...productData, ...Data1이 아닌 ...productData만 나옴
+      console.log(productData);
+    })
+    .catch(function (error) {
+      console.log("실패함");
+    });
+}
+
+//더보기 클릭했을 때 상품 카드 더 나오게 하기
+const more = document.getElementById("more");
+
+let moreClick = 0;
+more.addEventListener("click", () => {
+  //클릭할 때마다 횟수 올라감
+  moreClick++;
+  fetchData(moreClick);
+  console.log(productData);
+
+  //2번 카운팅 되면 버튼 사라지게 하기
+  if (moreClick === 2) {
+    document.getElementById("more").style.display = "none";
+  }
+});
 
 //카드 UI
 function setCard(product) {
@@ -73,34 +104,6 @@ function drawCard(data) {
 }
 
 drawCard(products);
-
-function fetchData(moreClick) {
-  //클릭횟수를 저장한 변수를 api주소 쪽에 넣어서 다른 api 호출하게 함
-  fetch(`https://codingapple1.github.io/js/more${moreClick}.json`)
-    .then((res) => res.json())
-    .then(function (data) {
-      console.log(data);
-      drawCard(data);
-    })
-    .catch(function (error) {
-      console.log("실패함");
-    });
-}
-
-//더보기 클릭했을 때 상품 카드 더 나오게 하기
-const more = document.getElementById("more");
-
-let moreClick = 0;
-more.addEventListener("click", () => {
-  //클릭할 때마다 횟수 올라감
-  moreClick++;
-  fetchData(moreClick);
-
-  //2번 카운팅 되면 버튼 사라지게 하기
-  if (moreClick === 2) {
-    document.getElementById("more").style.display = "none";
-  }
-});
 
 //products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 기능 구현
 const sortBtns = document.querySelector(".sort_container");
