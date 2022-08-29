@@ -31,8 +31,7 @@ document.getElementById("product-name").innerText = car.name;
 document.getElementById("product-price").innerText = car.price[0];
 
 /*
-TODO: 
-응용!
+TODO:
 더보기를 눌러서 목록이 불러와졌을 때도 정렬 기능 3가지가 작동하게 하기
 
 1. fetchData 분리하기
@@ -43,6 +42,8 @@ TODO:
 6. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 생성하기
 7. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 정렬하는 기능 구현
 8. 빈배열에 넣어진 데이터를 가지고 와서 상품 목록 필터하는 기능 구현
+
+일단 구현은 완료. 마음에 안드는데... 새로운 방법이 떠오를 때마다 계속 고쳐볼 것.
 */
 const products = [
   { id: 0, price: 70000, title: "Blossom Dress" },
@@ -50,23 +51,30 @@ const products = [
   { id: 2, price: 60000, title: "Black Monastery" },
 ];
 
-let productData = [...products];
-
+//ajax에서 데이터 가져오기
 function fetchData(moreClick) {
-  //클릭횟수를 저장한 변수를 api주소 쪽에 넣어서 다른 api 호출하게 함
+  //클릭횟수를 저장한 변수를 주소 쪽에 넣어서 다른 호출하게 함
   fetch(`https://codingapple1.github.io/js/more${moreClick}.json`)
     .then((res) => res.json())
     .then(function (data) {
-      drawCard(data); //모든 자바스크립트 코드가 실행되고 나서 렌더링이 되서 그려지는 결과가 나오는거고
-      productData = [...productData, ...data]; //얘는 코드가 실행 중이기 때문에, 한 번 클릭했음에도  ...productData, ...Data1이 아닌 ...productData만 나옴
-      console.log(productData);
+      isProductData(data);
     })
     .catch(function (error) {
       console.log("실패함");
     });
 }
 
-//더보기 클릭했을 때 상품 카드 더 나오게 하기
+//products, fetchData 합친 배열 만들기
+let productData = [...products];
+drawCard(productData);
+
+function isProductData(arr) {
+  const data = productData.concat(arr);
+  productData = data;
+  drawCard(productData);
+}
+
+//더보기 클릭했을 때 데이터 뽑아오기
 const more = document.getElementById("more");
 
 let moreClick = 0;
@@ -74,7 +82,6 @@ more.addEventListener("click", () => {
   //클릭할 때마다 횟수 올라감
   moreClick++;
   fetchData(moreClick);
-  console.log(productData);
 
   //2번 카운팅 되면 버튼 사라지게 하기
   if (moreClick === 2) {
@@ -86,9 +93,9 @@ more.addEventListener("click", () => {
 function setCard(product) {
   const card = `
     <div class="col-sm-4">
-        <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${product.title}</h5>
-        <p>가격 : ${product.price}</p>
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${product.title}</h5>
+      <p>가격 : ${product.price}</p>
     </div>
     `;
 
@@ -98,24 +105,17 @@ function setCard(product) {
 //데이터로 카드 생성하기
 function drawCard(data) {
   const row = document.querySelector(".row");
+  row.innerHTML = "";
   data.forEach((product) => {
     row.innerHTML += setCard(product);
   });
 }
 
-drawCard(products);
-
 //products 목록에 대해 가격순정렬, 상품명정렬, 6만원 이하 기능 구현
 const sortBtns = document.querySelector(".sort_container");
 sortBtns.addEventListener("click", (e) => {
-  //상품목록 초기화
-  document.querySelector(".row").innerHTML = "";
-
-  //sort는 원본배열을 바꾸는 함수이므로 복사한 배열 추가
-  const newProducts = [...products];
-
   //장렬
-  const ascending = newProducts.sort((a, b) => {
+  const ascending = productData.sort((a, b) => {
     if (e.target.dataset.sort === "price") {
       //기격 정렬
       return a.price - b.price;
@@ -133,7 +133,7 @@ sortBtns.addEventListener("click", (e) => {
 
   //가격 필터
   if (e.target.dataset.sort === "under-price") {
-    const underPrice = products.filter((arr) => {
+    const underPrice = productData.filter((arr) => {
       return arr.price <= 60000;
     });
 
