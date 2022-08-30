@@ -1,5 +1,35 @@
+.detail_nav_container a {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+.cart_notification {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: tomato;
+  position: absolute;
+  right: 0;
+  top: -3px;
+  display: none;
+}
+
+.product_container {
+  margin-top: 1rem;
+}
+
 .btn {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 /* select */
