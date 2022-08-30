@@ -25,15 +25,9 @@ localStorage 데이터 수정
 2. 꺼낸 거 수정하기
 3. 다시 넣음
 
-TODO: 구매버튼 누르면 누른 상품명 localStorage에 넣기
-key: cart, Value: ["product1", "product2"]
-팁1: 내 형제요소(sibling) 찾는 법 알아내기
-팁2: localStorage가 비어있을 때 / 뭐가 있을 때 저장방식이 다름.
-    구매버튼을 누를 때 cart 항목이 없으면 array 추가해야 함.
-    구매버튼을 누를 때 cart 항목이 없으면 array 수정해야 함.
-
 TODO: cart.html 방문 시 localStorage에 저장된 상품명들 다 보여주기
 */
+
 const CART_KEY = "cart";
 
 let cartItem = [];
@@ -42,6 +36,24 @@ function saveCartItem() {
   localStorage.setItem(CART_KEY, JSON.stringify(cartItem));
 }
 
+//cart.html에 localStorage cart UI로 뱉어내기
+
+//구매버튼 누르면 누른 상품명 localStorage에 넣기
+function handleCartList(e) {
+  const productId = e.target.dataset.id;
+  if (productId != undefined) {
+    const clickedItem = {
+      title: productData[productId].title,
+      price: productData[productId].price,
+    };
+    cartItem.push(clickedItem);
+    saveCartItem();
+  }
+}
+
+document.querySelector(".row").addEventListener("click", handleCartList);
+
+//key : cart가 있는지 확인
 const savedCartItem = localStorage.getItem(CART_KEY);
 
 if (savedCartItem !== null) {

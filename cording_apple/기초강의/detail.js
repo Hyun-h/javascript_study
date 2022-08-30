@@ -64,7 +64,7 @@ function setCard(product) {
       <img src="https://via.placeholder.com/600" class="w-100">
       <h5>${product.title}</h5>
       <p>가격 : ${product.price}</p>
-      <button class="btn btn-dark buy">구매</button>
+      <button data-id=${product.id} class="btn btn-dark buy">구매</button>
     </div>
     `;
 
