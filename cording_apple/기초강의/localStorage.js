@@ -25,28 +25,43 @@ localStorage 데이터 수정
 2. 꺼낸 거 수정하기
 3. 다시 넣음
 
-TODO: cart.html 방문 시 localStorage에 저장된 상품명들 다 보여주기
+TODO: "cart.html 방문 시" localStorage에 저장된 상품명들 다 보여주기
+TODO: localStorage 데이터 수정 구현
+TODO: 중복된 상품이 있을 경우 나열하는 게 아닌 몇 개인지 구현
 */
 
 const CART_KEY = "cart";
 
-let cartItem = [];
+let cartItems = [];
 
 function saveCartItem() {
-  localStorage.setItem(CART_KEY, JSON.stringify(cartItem));
+  localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
 }
 
-//cart.html에 localStorage cart UI로 뱉어내기
+//cart.html에 localStorage cart에 있는 목록 UI로 뱉어내기
+const cartList = document.getElementById("cart_list");
+
+function paintCartItem(newCartItem) {
+  const cartLi = document.createElement("li");
+  const span = document.createElement("span");
+  const p = document.createElement("p");
+  span.innerText = newCartItem.title;
+  p.innerText = newCartItem.price;
+  cartLi.appendChild(span);
+  cartLi.appendChild(p);
+  cartList.appendChild(cartLi);
+}
 
 //구매버튼 누르면 누른 상품명 localStorage에 넣기
 function handleCartList(e) {
   const productId = e.target.dataset.id;
   if (productId != undefined) {
-    const clickedItem = {
+    const newCartItemObj = {
       title: productData[productId].title,
       price: productData[productId].price,
     };
-    cartItem.push(clickedItem);
+    cartItems.push(newCartItemObj);
+    paintCartItem(newCartItemObj);
     saveCartItem();
   }
 }
@@ -60,4 +75,7 @@ if (savedCartItem !== null) {
   //cart가 localStorage에 존재할 때 뜨는 UI
   const cartNotification = document.querySelector(".cart_notification");
   cartNotification.classList.add("show");
+  const parsedCartItems = JSON.parse(savedCartItem);
+  cartItem = parsedCartItems;
+  parsedCartItems.forEach(paintCartItem);
 }
