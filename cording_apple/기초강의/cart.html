@@ -9,10 +9,37 @@
 </head>
 
 <body>
-    <!-- <ul id="cart_list">
-    </ul> -->
+    <ul id="cart_list">
+        <!-- 자바스크립트로 쇼핑카트 목록 만들기 -->
+    </ul>
 
-    <script src="localStorage.js"></script>
+    <script>
+        //"cart.html 방문 시" localStorage에 저장된 상품명들 다 보여주기
+        const CART_KEY = "cart";
+
+        //cart.html에 localStorage cart에 있는 목록 UI로 뱉어내기
+        const cartList = document.getElementById("cart_list");
+
+        function paintCartItem(newCartItem) {
+            const cartLi = document.createElement("li");
+            const span = document.createElement("span");
+            const p = document.createElement("p");
+            span.innerText = newCartItem.title;
+            p.innerText = newCartItem.price;
+            cartLi.appendChild(span);
+            cartLi.appendChild(p);
+            cartList.appendChild(cartLi);
+        }
+
+        //key : cart가 있는지 확인
+        const savedCartItem = localStorage.getItem(CART_KEY);
+
+        if (savedCartItem !== null) {
+            const parsedCartItems = JSON.parse(savedCartItem);
+            cartItems = parsedCartItems;
+            parsedCartItems.forEach(paintCartItem);
+        }
+    </script>
 </body>
 
 </html>
