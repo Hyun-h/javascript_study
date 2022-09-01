@@ -30,7 +30,6 @@ localStorage 데이터 수정
 로컬스토리지는 저장이 되지만, 배열은 로딩이 될 때마다 휘발이 된다.
 로컬스토리지와 배열의 개념적 기계가 충돌하는 정신 모델을 만들어서 구조 자체가 잘못 구현됨.
 
-TODO: 로컬스토리지 저장하는 함수에서 key: cart기 있느냐 없느냐에 따라 새로 저장 / 수정하기
 TODO: 중복된 상품이 있을 경우 나열하는 게 아닌 몇 개인지 구현
 */
 
@@ -40,7 +39,15 @@ const savedCartItem = localStorage.getItem(CART_KEY);
 let cartItems = [];
 
 function saveCartItem() {
-  localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
+  //key: cart기 있느냐 없느냐에 따라 수정 / 새로 저장
+  if (savedCartItem !== null) {
+    const parsedCartItems = JSON.parse(savedCartItem);
+    const changeCartItems = [...parsedCartItems, ...cartItems];
+    localStorage.setItem(CART_KEY, JSON.stringify(changeCartItems));
+  } else {
+    localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
+  }
+
   displayNotification();
 }
 
@@ -66,6 +73,7 @@ function displayNotification() {
 //localStorage에 cart값이 담긴 게 확인되면 UI 띄우기
 if (savedCartItem !== null) {
   displayNotification();
+  console.log(JSON.parse(savedCartItem));
 }
 
 document.querySelector(".row").addEventListener("click", handleCartList);
