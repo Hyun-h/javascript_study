@@ -35,6 +35,7 @@
         const savedCartItem = localStorage.getItem(CART_KEY);
 
         if (savedCartItem !== null) {
+            //localStorage에서 꺼내와서 그리기
             const parsedCartItems = JSON.parse(savedCartItem);
             cartItems = parsedCartItems;
             parsedCartItems.forEach(paintCartItem);

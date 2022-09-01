@@ -24,11 +24,18 @@ localStorage 데이터 수정
 1. 자료꺼냄
 2. 꺼낸 거 수정하기
 3. 다시 넣음
+*/
 
+/*
+로컬스토리지는 저장이 되지만, 배열은 로딩이 될 때마다 휘발이 된다.
+로컬스토리지와 배열의 개념적 기계가 충돌하는 정신 모델을 만들어서 구조 자체가 잘못 구현됨.
+
+TODO: 로컬스토리지 저장하는 함수에서 key: cart기 있느냐 없느냐에 따라 새로 저장 / 수정하기
 TODO: 중복된 상품이 있을 경우 나열하는 게 아닌 몇 개인지 구현
 */
 
 const CART_KEY = "cart";
+const savedCartItem = localStorage.getItem(CART_KEY);
 
 let cartItems = [];
 
@@ -36,21 +43,11 @@ function saveCartItem() {
   localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
 }
 
-//cart.html에 localStorage cart에 있는 목록 UI로 뱉어내기
-// const cartList = document.getElementById("cart_list");
+if (savedCartItem !== null) {
+  displayNotification();
+}
 
-// function paintCartItem(newCartItem) {
-//   const cartLi = document.createElement("li");
-//   const span = document.createElement("span");
-//   const p = document.createElement("p");
-//   span.innerText = newCartItem.title;
-//   p.innerText = newCartItem.price;
-//   cartLi.appendChild(span);
-//   cartLi.appendChild(p);
-//   cartList.appendChild(cartLi);
-// }
-
-//구매버튼 누르면 누른 상품명 localStorage에 넣기
+//구매버튼 누르면 누른 상품 cartItem에 넣고 saveCartItem 실행
 function handleCartList(e) {
   const productId = e.target.dataset.id;
   if (productId != undefined) {
@@ -59,21 +56,14 @@ function handleCartList(e) {
       price: productData[productId].price,
     };
     cartItems.push(newCartItemObj);
-    //paintCartItem(newCartItemObj);
     saveCartItem();
   }
 }
 
-document.querySelector(".row").addEventListener("click", handleCartList);
-
-//key : cart가 있는지 확인
-const savedCartItem = localStorage.getItem(CART_KEY);
-
-if (savedCartItem !== null) {
-  //cart가 localStorage에 존재할 때 뜨는 UI
+//cart가 localStorage에 존재할 때 뜨는 UI
+function displayNotification() {
   const cartNotification = document.querySelector(".cart_notification");
   cartNotification.classList.add("show");
-  // const parsedCartItems = JSON.parse(savedCartItem);
-  // cartItems = parsedCartItems;
-  // parsedCartItems.forEach(paintCartItem);
 }
+
+document.querySelector(".row").addEventListener("click", handleCartList);
