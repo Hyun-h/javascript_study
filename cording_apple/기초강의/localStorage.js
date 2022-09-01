@@ -41,9 +41,6 @@ let cartItems = [];
 
 function saveCartItem() {
   localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
-}
-
-if (savedCartItem !== null) {
   displayNotification();
 }
 
@@ -60,10 +57,15 @@ function handleCartList(e) {
   }
 }
 
-//cart가 localStorage에 존재할 때 뜨는 UI
+//장바구니에 담긴 걸 표시하는 UI
 function displayNotification() {
   const cartNotification = document.querySelector(".cart_notification");
   cartNotification.classList.add("show");
+}
+
+//localStorage에 cart값이 담긴 게 확인되면 UI 띄우기
+if (savedCartItem !== null) {
+  displayNotification();
 }
 
 document.querySelector(".row").addEventListener("click", handleCartList);
