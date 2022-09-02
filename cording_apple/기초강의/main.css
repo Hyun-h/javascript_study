@@ -1,0 +1,18 @@
+.grey {
+  background-color: lightgray;
+  height: 2000px;
+  margin-top: 500px;
+  display: flex;
+  gap: 1rem;
+}
+
+.img,
+.text {
+  flex: 1;
+}
+
+.img {
+  position: sticky;
+  align-self: flex-start; /* flex에서 sticky를 쓸려면 이걸 꼭 붙여줘야 함 */
+  top: 100px;
+}
