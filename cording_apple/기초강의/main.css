@@ -1,18 +1,13 @@
-.grey {
-  background-color: lightgray;
-  height: 2000px;
-  margin-top: 500px;
+.card-background {
+  height: 3000px;
+  margin-top: 800px;
+  margin-bottom: 1600px;
+}
+
+.card-box {
   display: flex;
-  gap: 1rem;
-}
-
-.img,
-.text {
-  flex: 1;
-}
-
-.img {
+  justify-content: center;
   position: sticky;
-  align-self: flex-start; /* flex에서 sticky를 쓸려면 이걸 꼭 붙여줘야 함 */
-  top: 100px;
+  top: 400px;
+  margin-top: 100px;
 }

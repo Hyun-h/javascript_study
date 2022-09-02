@@ -5,21 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sticky</title>
+    <title>apple music ui</title>
     <link href="main.css" rel="stylesheet">
 </head>
 
-<body style="background: grey; height: 3000px;">
-    <div class="grey">
-        <div class="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illum quam nesciunt. Corrupti, sunt. Similique
-            laborum voluptatum quidem incidunt! Nobis consequatur nam porro, possimus id perferendis odio repudiandae
-            alias molestias.
-        </div>
-        <div class="img">
-            <img src="appletv.jpg" width="100%" />
-        </div>
+<body>
+    <div class="card-background">
+        <div class="card-box"><img src="apple_card1.png" alt="apple_card1"></div>
+        <div class="card-box"><img src="apple_card2.png" alt="apple_card2"></div>
+        <div class="card-box"><img src="apple_card3.png" alt="apple_card3"></div>
     </div>
 </body>
+
+<script>
+    window.addEventListener('scroll', () => {
+        /*
+            TODO: 두번째 이미지, 세번째 이미지도 높이에 따라 서서히 사라지게 하기
+            TODO: 현재 창을 650~1150만큼 스크롤 했을 때 카드의 크기가 1에서 0.9로 작아지도록 만들기.
+        */
+        const height = window.scrollY;
+        const cardBox = document.querySelectorAll(".card-box");
+        /*
+        1. window.scrollY로 높이값을 구한다. (650 - 1150)
+        2. 650-1150까지 스크롤바를 내리면, 첫째카드의 opacity 1-0으로 서서희 변경해주세요! => 모든 건 한글로 적고 순서대로 하나씩 이행한다.
+        3. cardBox[0].style.opacity = 0 를 바로 넣어버리면 스크롤 내리자마자 사라지는 현상 발생. 0~1의 값을 가지는 변수 넣기
+        */
+
+        //let y = 높이가 650~1150일 때 0~1이 되는 y는? => 1차 함수 사용.
+        let y = (-1 / 500) * height + (115 / 50);
+        cardBox[0].style.opacity = y;
+    })
+</script>
 
 </html>
