@@ -20,7 +20,6 @@
 <script>
     window.addEventListener('scroll', () => {
         /*
-            TODO: 두번째 이미지, 세번째 이미지도 높이에 따라 서서히 사라지게 하기
             TODO: 현재 창을 650~1150만큼 스크롤 했을 때 카드의 크기가 1에서 0.9로 작아지도록 만들기.
         */
         const height = window.scrollY;
@@ -32,8 +31,12 @@
         */
 
         //let y = 높이가 650~1150일 때 0~1이 되는 y는? => 1차 함수 사용.
-        let y = (-1 / 500) * height + (115 / 50);
-        cardBox[0].style.opacity = y;
+        let y1 = (-1 / 500) * height + (115 / 50);
+        let y2 = (-1 / 500) * height + (175 / 50);
+        cardBox[0].style.opacity = y1;
+        cardBox[1].style.opacity = y2;
+
+        console.log(height)
     })
 </script>
 
