@@ -24,10 +24,13 @@
             const cartLi = document.createElement("li");
             const span = document.createElement("span");
             const p = document.createElement("p");
+            const strong = document.createElement("strong")
             span.innerText = newCartItem.title;
             p.innerText = newCartItem.price;
+            strong.innerText = newCartItem.count;
             cartLi.appendChild(span);
             cartLi.appendChild(p);
+            cartLi.appendChild(strong);
             cartList.appendChild(cartLi);
         }
 
