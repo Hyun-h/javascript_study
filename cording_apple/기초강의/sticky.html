@@ -20,7 +20,7 @@
 <script>
     window.addEventListener('scroll', () => {
         /*
-            TODO: 현재 창을 650~1150만큼 스크롤 했을 때 카드의 크기가 1에서 0.9로 작아지도록 만들기.
+            TODO: 애니메이션 부분 함수로 빼보기..
         */
         const height = window.scrollY;
         const cardBox = document.querySelectorAll(".card-box");
@@ -36,7 +36,11 @@
         cardBox[0].style.opacity = y1;
         cardBox[1].style.opacity = y2;
 
-        console.log(height)
+
+        let z1 = (-1 / 5000) * height + (540 / 500);
+        let z2 = (-1 / 5000) * height + (590 / 500);
+        cardBox[0].style.transform = `scale(${z1})`;
+        cardBox[1].style.transform = `scale(${z2})`;
     })
 </script>
 
