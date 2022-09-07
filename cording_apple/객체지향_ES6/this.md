@@ -131,7 +131,8 @@ object.anyFunction();
 ```
 
 - case3. 오브젝트 내에서 콜백함수를 arrow function으로 쓰면 this는?  
-  <strong>arrow function은 내부의 this값을 변화시키지 않음. 외부 this값 그대로 재사용 가능</strong>
+  <strong>arrow function은 내부의 this값을 변화시키지 않음. 외부 this값 그대로 재사용 가능</strong>  
+  재사용이 가능해져서 오브젝트 안의 콜백함수에서 bind(this), call(this) 안써도 됨
 
 ```js
 const object = {
