@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this, arrow function</title>
+</head>
+
+<body>
+    <button id="button">버튼이에요</button>
+</body>
+
+<script>
+    const people = {
+        name: "손흥민",
+        sayHi: function () {
+            console.log(`안녕, 나는 ${this.name}`);
+        },
+    };
+    people.sayHi();
+
+    const file = {
+        data: [1, 2, 3, 4, 5],
+    };
+    //이렇게 하면 오브젝트 밖에서 함수 제작 가능
+    file.addAllAdd = function () {
+        const arr = this.data;
+        let add = 0;
+        arr.forEach((item) => add += item);
+        console.log(add);
+    }
+    file.addAllAdd();
+
+    document.getElementById('button')?.addEventListener('click', function () {
+        setTimeout(() => console.log(this.innerHTML), 1000)
+    });
+</script>
+
+</html>
