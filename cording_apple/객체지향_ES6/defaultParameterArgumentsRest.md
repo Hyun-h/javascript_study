@@ -73,6 +73,7 @@ anyFunction(1, 2, 3);
 ## rest
 
 만약 arguments를 쓰는 상태에서 파라미터를 일부분만을 사용하고 싶은 경우가 생기면 배열을 다루듯 자료를 쪼개야 하는 일이 발생한다.  
+또한 arguments는 파라미터가 몇 개가 들어갈건지 미리 선언해줘야 한다.  
 그런 불편함을 개선한 ES6 문법이 rest이다.
 
 ```js
@@ -82,6 +83,7 @@ function anyFunction(...rest) {
   console.log(rest); //[1, 2, 3, 4, 5, 6, 7]
 }
 
+//파라미터가 몇 개가 들어오던지 미리 지정하지 않아도 된다.
 anyFunction(1, 2, 3, 4, 5, 6, 7);
 ```
 
@@ -93,6 +95,21 @@ function anyFunction(a, b ...rest) {
 }
 
 anyFunction(1, 2, 3, 4, 5, 6, 7);
+```
+
+### 사용시 주의점
+
+1. rest는 <strong>여기 뒤에 있는 모든 파라미터</strong>를 뜻하기 때문에 가장 뒤에 써야한다.
+2. 두 번 이상 사용 금지
+
+```js
+function anyFunction(...rest, a, b) {
+  console.log(rest); //error
+}
+
+function anyFunction(a, b, ...rest, ...rest2) {
+  console.log(rest); //error
+}
 ```
 
 ### ...rest vs ...spread operator 차이
