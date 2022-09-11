@@ -69,3 +69,33 @@ function anyFunction(a, b, c) {
 
 anyFunction(1, 2, 3);
 ```
+
+## rest
+
+만약 arguments를 쓰는 상태에서 파라미터를 일부분만을 사용하고 싶은 경우가 생기면 배열을 다루듯 자료를 쪼개야 하는 일이 발생한다.  
+그런 불편함을 개선한 ES6 문법이 rest이다.
+
+```js
+//rest parameter
+//...rest의 명칭은 원하는대로 넣어줘도 괜찮다. 예시)...parameters
+function anyFunction(...rest) {
+  console.log(rest); //[1, 2, 3, 4, 5, 6, 7]
+}
+
+anyFunction(1, 2, 3, 4, 5, 6, 7);
+```
+
+arguments는 모든 파라미터를 배열에 담지만, rest parameter는 ...rest 자리에 오는 모든 파라미터를 배열 안에 담아준다.
+
+```js
+function anyFunction(a, b ...rest) {
+  console.log(rest); //[3, 4, 5, 6, 7]
+}
+
+anyFunction(1, 2, 3, 4, 5, 6, 7);
+```
+
+### ...rest vs ...spread operator 차이
+
+rest : 함수 파라미터에 붙음  
+spread operator : 그 외 나머지
