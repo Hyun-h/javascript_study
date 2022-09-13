@@ -23,7 +23,7 @@ function 함수(a = 5, b = a * 2) {
 function 함수(a = 5, b = a * 2) {
   console.log(a + b);
 }
-함수(undefined, undefined); //undefined
+함수(undefined, undefined); //15 : default parameter 발동, 파라미터 안에 아무것도 안넣었다고 판단.
 
 //array 만드는 함수 제작
 function 어레이(...rest) {
