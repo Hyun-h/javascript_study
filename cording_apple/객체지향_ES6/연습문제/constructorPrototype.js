@@ -14,3 +14,9 @@ console.log(product2);
 
 product1.vat();
 product2.vat();
+
+console.log(createProductData.prototype);
+
+createProductData.prototype.category = "wear";
+
+console.log(product1.category);
