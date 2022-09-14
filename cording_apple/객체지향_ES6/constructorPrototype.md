@@ -101,21 +101,20 @@ console.log(student1.gender); //man
 부모의 유전자(prototype)에 등록을 해서 가능하다.  
 왜 가능할까?
 
-### 작동원리1
+### 작동원리
 
 위의 예시 코드 기준으로 자바스크립트는 아래와 같이 확인을 하며 작동한다.
 
+```
 1. student1이 직접 gender를 가지고 있는가? 예 : 출력 / 아니오 : 2번으로
 2. student1의 부모 유전자(student.prototype)가 gender를 가지고 있는가? 예 : 출력
+```
 
-내가 직접 가지고 있는지 검사한 후 내가 가지고 있지 않으면 부모 혹은 그 조상의 유전자들을 차례대로 검사한다.
-
-### 작동원리2
-
-내장함수는 어떻게 작동하는가? 대체 어떻게 됐길레 모든 object가 쓸 수 있을까?  
-작동원리1와 원리는 같다.
-부모 유전자에도 없으면 그 위의 부모 유전자, 거기에도 없으면 부모의 부모 유전자에도 찾게 된다. 올라가다 보니 찾게 되는 조상 유전자가 내장함수이고, 그래서 실행이 가능하다.  
-그래서 mdn에서 <strong>Array.prototype</strong>.sort() 라고 적혀있다.
+내가 직접 가지고 있는지 검사한 후 내가 가지고 있지 않으면 부모 혹은 그 조상의 유전자들을 차례대로 검사한다.  
+자바스크립트 작동원리를 따라가면 내장함수는 작동원리도 쉽게 이해할 수 있다.  
+부모 유전자에도 없으면 그 위의 부모 유전자, 거기에도 없으면 부모의 부모 유전자에도 찾게 된다.  
+올라가다 보니 찾게 되는 조상 유전자가 내장함수이고, 그래서 실행이 가능하다.  
+그래서 mdn에서 내장함수를 검색하면 <strong>Array.prototype</strong>.sort() 라고 적혀있다.
 
 ```js
 //사람의 눈에 보이는 방식
@@ -133,6 +132,36 @@ const arr = new Array(1, 2, 3);
 const obj = { name: "kim" };
 const obj = new Object();
 ```
+
+### prototype 특징
+
+1. prototype은 constructor 함수에만 생성된다.
+
+```js
+const arr = [1, 2, 3];
+console.log(arr.prototype); //undefined
+```
+
+2. 내 부모의 유전자(부모의 prototype)를 검사하고 싶다면?
+
+```js
+console.log(arr.__proto__); //[constructor: ƒ, at: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, …]
+console.log(student1.__proto__); //{gender: "man", constructor: ƒ}
+```
+
+```js
+//__proto__ 특성을 이용해 부모를 강제로 등록할 수 있다.
+const parents = { name: "kim" };
+const child = {};
+child.__proto__ = parents;
+console.log(child.name); // "kim"
+```
+
+3. console에서 prototype 정보는 항상 출력이 된다.  
+   부모의 부모를 따라 탐색하다보면 모든 object 자료형의 조상은 Object()라는 기계이다. (Object.prototype)  
+   모든 array 자료형도 Array()라는 부모를 지나서 조상 쪽으로 가면 Object()이다.  
+   모든 함수 자료형의 조상도 Object()이다.  
+   그래서 자바스크립트는 모든 게 다 Object라고 이야기 한다.
 
 ## prototype으로 상속시키는거랑 constructor로 상속시키는거랑 차이?
 
