@@ -3,6 +3,9 @@ class grandpapa {
     this.lastName = "kim";
     this.firstName = name;
   }
+  sayHi() {
+    console.log("I am grandpapa!");
+  }
 }
 
 class papa extends grandpapa {
@@ -10,7 +13,11 @@ class papa extends grandpapa {
     super(name);
     this.age = age;
   }
+  sayHi() {
+    console.log("I am papa!");
+    super.sayHi();
+  }
 }
 
 const papa1 = new papa("john", 50);
-console.log(papa1);
+console.log(papa1.sayHi());

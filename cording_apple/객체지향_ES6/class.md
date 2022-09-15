@@ -134,7 +134,9 @@ class papa extends grandpapa {
 
 ### super()
 
-물려받는 class의 constructor라는 뜻.
+#### 첫번째 용도
+
+<strong>물려받는 class의 constructor라는 뜻.</strong>
 
 extends해서 쓴 class는 this를 그냥 못써서 꼭 2가지의 규칙을 따라야 한다.
 
@@ -159,4 +161,35 @@ class papa extends grandpapa {
 
 const papa1 = new papa("john", 50);
 console.log(papa1); //papa {lastName: 'kim', firstName: 'john', age: 50}
+```
+
+#### 두번째 용도
+
+<strong>부모 class의 prototype을 의미</strong>
+
+```js
+class grandpapa {
+  constructor(name) {
+    this.lastName = "kim";
+    this.firstName = name;
+  }
+  sayHi() {
+    console.log("I am grandpapa!");
+  }
+}
+
+class papa extends grandpapa {
+  constructor(name, age) {
+    //부모 class의 constructor
+    super(name);
+    this.age = age;
+  }
+  sayHi() {
+    console.log("I am papa!");
+    //부모 class의 prototype을 의미, 그걸 실행시켜 주세요!
+    super.sayHi();
+  }
+}
+
+const papa1 = new papa("john", 50);
 ```
