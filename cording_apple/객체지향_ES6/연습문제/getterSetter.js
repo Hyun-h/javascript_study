@@ -64,3 +64,65 @@ console.log(neoPerson.nextAge); //21
 
 neoPerson.setAge = 40;
 console.log(neoPerson.nextAge); //41
+
+/*
+문제 4.
+자바스크립트로 간단한 게임 기능을 가진 오브젝트를 뽑는 class를 만들고 싶습니다. 
+다음 조건에 따라 class를 만들어보세요. class 이름은 Unit이라고 합시다.
+
+(1) 모든 Unit의 인스턴스는 공격력, 체력 속성이 있으며 기본 공격력은 5, 기본 체력은 100으로 설정되어 있어야 합니다.
+(2) 모든 Unit의 인스턴스는 전투력을 측정해주는 battlePoint라는 getter가 있습니다.
+console.log( 인스턴스.battlePoint ) 이렇게 사용하면 현재 공격력과 체력을 더한 값을 콘솔창에 출력해주어야합니다.
+(3) 모든 Unit의 인스턴스는 heal이라는 setter가 있습니다.
+인스턴스.heal = 50 이렇게 사용하면 체력 속성이 50 증가해야합니다. 
+*/
+
+class Unit {
+  constructor() {
+    this.ap = 5;
+    this.hp = 100;
+  }
+  get battlePoint() {
+    return console.log(this.ap + this.hp);
+  }
+  set setHeal(heal) {
+    this.hp += heal;
+  }
+}
+
+const unit1 = new Unit();
+unit1.setHeal = 50;
+unit1.battlePoint;
+
+/*
+문제 5.
+data.setter함수(1,2,3,4,5) 이렇게 입력하면 
+data = { odd : [1,3,5], even : [2,4] }
+이렇게 저장이 되어야합니다. 
+*/
+
+const Discrimination = {
+  odd: [],
+  even: [],
+  //getter
+  //getter 함수를 사용하면 odd, even에 저장된 모든 데이터들이 숫자순으로 정렬되어 출력
+  sortArr() {
+    this.odd.sort((a, b) => a - b);
+    this.even.sort((a, b) => a - b);
+    return;
+  },
+
+  //setter
+  //setter 함수에 1,2,3,4 이렇게 아무 자연수나 파라미터로 입력하면 홀수는 odd, 짝수는 even 이라는 속성에 array 형태로 저장
+  setNumber(...rest) {
+    console.log(rest);
+    rest.forEach((item) => {
+      item % 2 === 1 ? this.odd.push(item) : this.even.push(item);
+    });
+  },
+};
+
+Discrimination.setNumber(5, 6, 4, 3, 3, 42, 3, 65, 6, 7, 8);
+Discrimination.sortArr();
+
+console.log(Discrimination);
