@@ -83,7 +83,7 @@ class Unit {
     this.hp = 100;
   }
   get battlePoint() {
-    return console.log(this.ap + this.hp);
+    return this.ap + this.hp;
   }
   set setHeal(heal) {
     this.hp += heal;
@@ -92,7 +92,7 @@ class Unit {
 
 const unit1 = new Unit();
 unit1.setHeal = 50;
-unit1.battlePoint;
+console.log(unit1.battlePoint);
 
 /*
 문제 5.
@@ -109,13 +109,11 @@ const Discrimination = {
   sortArr() {
     this.odd.sort((a, b) => a - b);
     this.even.sort((a, b) => a - b);
-    return;
   },
 
   //setter
   //setter 함수에 1,2,3,4 이렇게 아무 자연수나 파라미터로 입력하면 홀수는 odd, 짝수는 even 이라는 속성에 array 형태로 저장
   setNumber(...rest) {
-    console.log(rest);
     rest.forEach((item) => {
       item % 2 === 1 ? this.odd.push(item) : this.even.push(item);
     });
