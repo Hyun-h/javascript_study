@@ -6,3 +6,10 @@ let bodyInfo = {
   },
   size: ["상의 Large", "바지 30인치"],
 };
+
+let {
+  body: { height, weight },
+  size: [상의, 하의],
+} = bodyInfo;
+
+console.log(height, weight, 상의, 하의); //190 70 '상의 Large' '바지 30인치'

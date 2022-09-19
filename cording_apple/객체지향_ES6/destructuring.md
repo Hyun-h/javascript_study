@@ -112,3 +112,24 @@ function printValue({ peopleName, peopleAge }) {
 
 printValue(peopleObj); //kim 30
 ```
+
+중첩 객체의 경우 다음과 같이 사용한다.
+
+```js
+let bodyInfo = {
+  body: {
+    height: 190,
+    weight: 70,
+  },
+  size: ["상의 Large", "바지 30인치"],
+};
+
+let {
+  //body 프로퍼티 키로 객체를 추출하고, 이 객체의 height, weight 프로퍼티 키로 값을 추츨한다.
+  body: { height, weight },
+  //객체 안 배열이라 하더라도 배열이면 배열에서의 디스트럭처링을 사용할 수 있다는 걸 기억하자.
+  size: [상의, 하의],
+} = bodyInfo;
+
+console.log(height, weight, 상의, 하의); //190 70 '상의 Large' '바지 30인치'
+```
