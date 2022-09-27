@@ -17,3 +17,29 @@ promise.then(console.log).catch(console.log);
 fetch("https://codingapple1.github.io/hello.txt")
   .then((res) => res.text())
   .then((data) => console.log(data));
+
+//async, await 연습
+//클릭하면 성공했어요를 띄우는 Promise 만들기
+
+//내가 한 것
+async function buttonClick() {
+  const click = new Promise((resolve) => {
+    document.getElementById("button").addEventListener("click", () => {
+      resolve("성공했어요!");
+    });
+  });
+  click.then(console.log);
+}
+
+// const buttonPromise = new Promise((resolve) => {
+//   document.getElementById("button").addEventListener("click", () => {
+//     resolve("성공했어요!");
+//   });
+// });
+
+// async function buttonClick() {
+//   const result = await buttonPromise;
+//   console.log(result);
+// }
+
+buttonClick();
