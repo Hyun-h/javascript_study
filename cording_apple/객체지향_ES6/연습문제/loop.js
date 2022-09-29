@@ -30,13 +30,15 @@ let newKey;
 
 for (let item of products) {
   for (let key in item) {
+    //여기를 어떻게 처리하면 좋을까?
+    //이 방법은 뒤집힌다.
     //마지막글자를 숫자로변환했을 때 NaN이 안나오면 (숫자면)
-    if (isNaN(parseInt(key.slice(-1))) == false) {
-      newValue = item[key];
-      newKey = key.slice(0, -1);
-      item[newKey] = newValue;
-      delete item[key];
-    }
+    // if (isNaN(parseInt(key.slice(-1))) == false) {
+    //   newValue = item[key];
+    //   newKey = key.slice(0, -1);
+    //   item[newKey] = newValue;
+    //   delete item[key];
+    // }
   }
 }
 
