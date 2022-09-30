@@ -95,3 +95,11 @@ console.log(a === b); //true
 ```
 
 3. 기본 내장 심볼
+   자료형에 [Symbol.iterator]를 붙여 출력을 하면 기본으로 내장되어 있는 심볼을 볼 수 있다.  
+   심볼은 몰래 자료를 저장할 때 쓰는 자료형이어서 반복문을 써도 출력되지 않아 인지하지 못하고 있었다.
+
+```js
+const arr = [2, 3, 4];
+//위의 person[weight]과 비슷하지 않은가? 이것도 원리는 똑같다.
+console.log(arr[Symbol.iterator]);
+```
