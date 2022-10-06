@@ -1,30 +1,30 @@
 const response = [
   {
-    city: "city1",
-    country: "country1",
-    province: "province1",
-    shopList: ["1234", "qwer", "asdf"],
+    country: "KR",
+    province: "all",
+    city: "all",
+    shopList: ["shop1", "shop2", "shop3"],
   },
   {
-    city: "city2",
-    country: "country2",
-    province: "province2",
-    shopList: ["2345", "wert", "sdfg"],
+    country: "CN",
+    province: "all",
+    city: "all",
+    shopList: ["shop4", "shop5", "shop6"],
   },
   {
-    city: "city3",
-    country: "country3",
-    province: "province3",
-    shopList: ["3456", "xvxcv", "dfgdf"],
+    country: "US",
+    province: "all",
+    city: "all",
+    shopList: ["shop7", "shop8", "shop9"],
   },
 ];
 
-const list = response.flatMap((info) =>
-  info.shopList.map((shop) => {
+const list = response.flatMap((item) =>
+  item.shopList.map((shop) => {
     return {
-      city: info.city,
-      country: info.country,
-      province: info.province,
+      city: item.city,
+      country: item.country,
+      province: item.province,
       shop,
     };
   })
