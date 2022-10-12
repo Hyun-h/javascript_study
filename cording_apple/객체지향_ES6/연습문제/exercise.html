@@ -11,7 +11,41 @@
 <body>
   <!-- <img id="test" src="https://codingapple1.github.io/kona.jpg" />
     <button id="button">버튼이에요</button> -->
+  <custom-input name="123"></custom-input>
+  <custom-input name="123"></custom-input>
+
 </body>
+
+<script>
+  class createCustomInput extends HTMLElement {
+    connectedCallback() {
+      const name = this.getAttribute('name');
+
+      //방법1 : 덜 귀찮음
+      // this.innerHTML = `
+      //   <label>안녕하세요!</label>
+      //   <input />
+      // `
+
+      //방법2 : 생성 속도 빠름/
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      label.innerText = `${name} 입력하세요`
+      this.appendChild(label);
+      this.appendChild(input);
+    }
+
+    static get observedAttributes() {
+      return ['name']
+    }
+
+    attributeChangedCallback() {
+      console.log(this.getAttribute('name'))
+    }
+  }
+
+  customElements.define('custom-input', createCustomInput);
+</script>
 
 <!-- 
   <script src="thisArrowFunction.js"></script>
@@ -24,12 +58,5 @@
   <script src="promise.js"></script>
   <script src="loop.js"></script>
   -->
-<script>
-  let listArr = ["john", "tom", "andy", "tom"];
-  const listSet = new Set(listArr);
-
-  listArr = [...listSet];
-  console.log(listArr);
-</script>
 
 </html>
