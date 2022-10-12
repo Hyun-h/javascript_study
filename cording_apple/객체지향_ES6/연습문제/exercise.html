@@ -11,36 +11,31 @@
 <body>
   <!-- <img id="test" src="https://codingapple1.github.io/kona.jpg" />
     <button id="button">버튼이에요</button> -->
-  <custom-input name="123"></custom-input>
-  <custom-input name="123"></custom-input>
 
+
+  <custom-input></custom-input>
+  <label>영향을 받지 않는다!</label>
+
+  <template id="template1">
+    <label>안녕하세요!</label>
+    <input />
+    <style>
+      label {
+        color: red
+      }
+    </style>
+  </template>
 </body>
 
 <script>
   class createCustomInput extends HTMLElement {
     connectedCallback() {
-      const name = this.getAttribute('name');
-
-      //방법1 : 덜 귀찮음
-      // this.innerHTML = `
-      //   <label>안녕하세요!</label>
-      //   <input />
-      // `
-
-      //방법2 : 생성 속도 빠름/
-      const label = document.createElement('label');
-      const input = document.createElement('input');
-      label.innerText = `${name} 입력하세요`
-      this.appendChild(label);
-      this.appendChild(input);
-    }
-
-    static get observedAttributes() {
-      return ['name']
-    }
-
-    attributeChangedCallback() {
-      console.log(this.getAttribute('name'))
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.append(template1.content.cloneNode(true));
+      const clickEvent = this.shadowRoot.querySelector('label');
+      clickEvent.addEventListener('click', function () {
+        console.log("click")
+      })
     }
   }
 
