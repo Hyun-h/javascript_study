@@ -1,40 +1,39 @@
-// const response = [
-//   {
-//     country: "KR",
-//     province: "all",
-//     city: "all",
-//     shopList: ["shop1", "shop2", "shop3"],
-//   },
-//   {
-//     country: "CN",
-//     province: "all",
-//     city: "all",
-//     shopList: ["shop4", "shop5", "shop6"],
-//   },
-//   {
-//     country: "US",
-//     province: "all",
-//     city: "all",
-//     shopList: ["shop7", "shop8", "shop9"],
-//   },
-// ];
+const $counter = document.getElementById("counter");
+const $increase = document.getElementById("increase");
+const $decrease = document.getElementById("decrease");
 
-// const list = response.flatMap((item) =>
-//   item.shopList.map((shop) => {
-//     return {
-//       city: item.city,
-//       country: item.country,
-//       province: item.province,
-//       shop,
-//     };
-//   })
-// );
+let num = 0;
+const render = function () {
+  $counter.innerText = num;
+};
 
-// console.log(list);
+$increase.addEventListener("click", function () {
+  num++;
+  console.log("increase 버튼 클릭", num);
+  render();
+});
 
-const el = document.getElementById("result");
-const { className, clientHeight, scrollTop } = el;
-console.log(el);
-console.log(className);
-console.log(clientHeight);
-console.log(scrollTop);
+// $increase.onClick = function () {
+//   num++;
+//   console.log("increase 버튼 클릭", num);
+//   render();
+// };
+
+$decrease.addEventListener("click", function () {
+  num--;
+  console.log("decrease 버튼 클릭", num);
+  render();
+});
+
+// $decrease.onClick = function () {
+//   num--;
+//   console.log("decrease 버튼 클릭", num);
+//   render();
+// };
+
+console.log(score);
+
+score = 80;
+var score;
+
+console.log(score);
