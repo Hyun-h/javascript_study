@@ -1,39 +1,18 @@
-const $counter = document.getElementById("counter");
-const $increase = document.getElementById("increase");
-const $decrease = document.getElementById("decrease");
+var binary = 0b1000001; //2진수
+var octal = 0o101; //8진수
+var hex = 0x41; //16진수
 
-let num = 0;
-const render = function () {
-  $counter.innerText = num;
-};
+// 표기법만 다르고 모두 같은 값이다.
+console.log(binary);
+console.log(octal);
+console.log(hex);
+console.log(binary === octal);
+console.log(binary === hex);
 
-$increase.addEventListener("click", function () {
-  num++;
-  console.log("increase 버튼 클릭", num);
-  render();
-});
+console.log(1 === 1.0);
+console.log(4 / 2);
+console.log(3 / 2);
 
-// $increase.onClick = function () {
-//   num++;
-//   console.log("increase 버튼 클릭", num);
-//   render();
-// };
-
-$decrease.addEventListener("click", function () {
-  num--;
-  console.log("decrease 버튼 클릭", num);
-  render();
-});
-
-// $decrease.onClick = function () {
-//   num--;
-//   console.log("decrease 버튼 클릭", num);
-//   render();
-// };
-
-console.log(score);
-
-score = 80;
-var score;
-
-console.log(score);
+console.log(10 / 0);
+console.log(10 / -0);
+console.log(1 * "String");
