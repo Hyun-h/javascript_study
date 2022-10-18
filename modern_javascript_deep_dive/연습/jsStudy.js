@@ -1,8 +1,26 @@
-var key = Symbol("key");
-console.log(key);
-console.log(typeof key);
+var foo;
+console.log(typeof foo);
 
-var obj = {};
+foo = 3;
+console.log(typeof foo);
 
-obj[key] = "value";
-console.log(obj[key]);
+foo = "Hello!";
+console.log(typeof foo);
+
+foo = true;
+console.log(typeof foo);
+
+foo = null;
+console.log(typeof foo);
+
+foo = Symbol();
+console.log(typeof foo);
+
+foo = {};
+console.log(typeof foo);
+
+foo = [];
+console.log(typeof foo);
+
+foo = function () {};
+console.log(typeof foo);
