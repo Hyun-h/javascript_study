@@ -64,7 +64,7 @@
 | 시작날짜   | 완료날짜   | 내용        | 링크                                        |
 | ---------- | ---------- | ----------- | ------------------------------------------- |
 | 2022-10-13 | 2022-10-17 | 01장 ~ 05장 | [1장][1장] [2장][2장] [4장][4장] [5장][5장] |
-| 2022-10-17 |            | 06장 ~ 10장 |                                             |
+| 2022-10-17 |            | 06장 ~ 10장 | [6장][6장]                                  |
 | 2022-      |            | 11장 ~ 15장 |                                             |
 | 2022-      |            | 16장 ~ 20장 |                                             |
 | 2022-      |            | 21장 ~ 25장 |                                             |
@@ -80,3 +80,4 @@
 [2장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/02%EC%9E%A5_%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%9E%80
 [4장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/04%EC%9E%A5_%EB%B3%80%EC%88%98
 [5장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/05%EC%9E%A5_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC_%EB%AC%B8
+[6장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/06%EC%9E%A5_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%83%80%EC%9E%85
