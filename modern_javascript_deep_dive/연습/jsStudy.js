@@ -1,26 +1,39 @@
-var foo;
-console.log(typeof foo);
+// var x = 1;
 
-foo = 3;
-console.log(typeof foo);
+// x++;
+// console.log(x);
 
-foo = "Hello!";
-console.log(typeof foo);
+// x--;
+// console.log(x);
 
-foo = true;
-console.log(typeof foo);
+// var x = 5,
+//   result;
 
-foo = null;
-console.log(typeof foo);
+// result = x++;
+// console.log(result, x);
 
-foo = Symbol();
-console.log(typeof foo);
+// result = ++x;
+// console.log(result, x);
 
-foo = {};
-console.log(typeof foo);
+// result = x--;
+// console.log(result, x);
 
-foo = [];
-console.log(typeof foo);
+// result = --x;
+// console.log(result, x);
 
-foo = function () {};
-console.log(typeof foo);
+var x = "1";
+
+console.log(+x);
+console.log(x);
+
+x = true;
+console.log(+x);
+console.log(x);
+
+x = false;
+console.log(+x);
+console.log(x);
+
+x = "Hello";
+console.log(+x);
+console.log(x);
