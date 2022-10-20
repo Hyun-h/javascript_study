@@ -1,30 +1,30 @@
-for (var i = 2; i < 10; i++) {
-  console.log(`${i}단`);
-  for (var j = 1; j < 10; j++) {
-    console.log(`${i} * ${j} = ${i * j}`);
-  }
-  console.log("-----");
+foo: {
+  console.log(1);
+  break foo; // foo 레이블 블록문을 탈출한다.
+  console.log(2);
 }
 
-// var count = 0;
+console.log("Done!");
 
-// while (count < 3) {
-//   console.log(count);
-//   count++
-// }
+outer: for (var i = 0; i < 3; i++) {
+  for (var j = 0; j < 3; j++) {
+    if (i + j === 3) break outer;
+    console.log(`inner [${i}, ${j}]`);
+  }
+}
 
-// var count = 0;
+console.log("Done!");
 
-// while (true) {
-//   console.log(count);
-//   count++;
+var string = "Hello World.";
+var search = "l";
+var index;
 
-//   // count가 3이면 코드 블록을 탈출한다.
-//   if (count === 3) break;
+for (var i = 0; i < string.length; i++) {
+  if (string[i] === search) {
+    index = i;
+    break;
+  }
+}
 
-var count = 0;
-
-do {
-  console.log(count);
-  count++;
-} while (count < 3);
+console.log(index);
+console.log(string.indexOf(search));
