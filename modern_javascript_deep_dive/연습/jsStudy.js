@@ -1,30 +1,13 @@
-foo: {
-  console.log(1);
-  break foo; // foo 레이블 블록문을 탈출한다.
-  console.log(2);
-}
-
-console.log("Done!");
-
-outer: for (var i = 0; i < 3; i++) {
-  for (var j = 0; j < 3; j++) {
-    if (i + j === 3) break outer;
-    console.log(`inner [${i}, ${j}]`);
-  }
-}
-
-console.log("Done!");
-
 var string = "Hello World.";
 var search = "l";
-var index;
+var count = 0;
 
 for (var i = 0; i < string.length; i++) {
-  if (string[i] === search) {
-    index = i;
-    break;
-  }
+  if (string[i] !== search) continue;
+  count++;
 }
 
-console.log(index);
-console.log(string.indexOf(search));
+console.log(count);
+
+const regexp = new RegExp(search, "g");
+console.log(string.match(regexp).length);
