@@ -1,34 +1,30 @@
-var year = 2000;
-var month = 2;
-var days = 0;
-
-switch (month) {
-  case 1:
-  case 3:
-  case 5:
-  case 7:
-  case 8:
-  case 10:
-  case 12:
-    days = 31;
-    break;
-
-  case 4:
-  case 6:
-  case 9:
-  case 11:
-    days = 30;
-    break;
-
-  case 2:
-    // 윤년 계산 알고리즘
-    // 1. 연도가 4로 나누어 떨어지는 해(2000, 2004, 2008, 2012, 2016, 2020...)는 윤년이다.
-    // 2. 연도가 4로 나누어 떨어지더라도 연도가 100으로 나누어 떨어지는 해(2000, 2100, 2200)는 평년이다.
-    // 3. 연도가 400으로 나누어 떨어지는 해(2000, 2400, 2800...)는 윤년이다.
-    days = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
-    break;
-  default:
-    console.log("Invalid month");
+for (var i = 2; i < 10; i++) {
+  console.log(`${i}단`);
+  for (var j = 1; j < 10; j++) {
+    console.log(`${i} * ${j} = ${i * j}`);
+  }
+  console.log("-----");
 }
 
-console.log(days);
+// var count = 0;
+
+// while (count < 3) {
+//   console.log(count);
+//   count++
+// }
+
+// var count = 0;
+
+// while (true) {
+//   console.log(count);
+//   count++;
+
+//   // count가 3이면 코드 블록을 탈출한다.
+//   if (count === 3) break;
+
+var count = 0;
+
+do {
+  console.log(count);
+  count++;
+} while (count < 3);
