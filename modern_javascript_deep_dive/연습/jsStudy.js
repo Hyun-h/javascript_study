@@ -1,13 +1,5 @@
-var string = "Hello World.";
-var search = "l";
-var count = 0;
-
-for (var i = 0; i < string.length; i++) {
-  if (string[i] !== search) continue;
-  count++;
-}
-
-console.log(count);
-
-const regexp = new RegExp(search, "g");
-console.log(string.match(regexp).length);
+if ("") console.log("1");
+if (true) console.log("2");
+if (0) console.log("3");
+if ("str") console.log("4");
+if (null) console.log("5");
