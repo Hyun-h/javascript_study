@@ -1,31 +1,49 @@
-// var person = {
+// var x = 1,
+//   y = 2;
+
+// var obj = {
+//   x: x,
+//   y: y,
+// };
+
+// console.log(obj);
+
+// var prefix = "prop";
+// var i = 0;
+
+// var obj = {};
+
+// obj[prefix + "-" + ++i] = i;
+// obj[prefix + "-" + ++i] = i;
+// obj[prefix + "-" + ++i] = i;
+
+// console.log(obj);
+
+// const prefix = "prop";
+// let i = 0;
+
+// const obj = {
+//   [`${prefix}-${++i}`]: i,
+//   [`${prefix}-${++i}`]: i,
+//   [`${prefix}-${++i}`]: i,
+// };
+
+// console.log(obj);
+
+// var obj = {
 //   name: "Lee",
-//   sayHello: function () {
-//     console.log(`Hello! My name is ${this.name}`);
+//   sayHi: function () {
+//     console.log("Hi! " + this.name);
 //   },
 // };
 
-// person.sayHello();
-// console.log(typeof person); // object
-// console.log(person); //
+// obj.sayHi();
 
-var person = {
-  firstName: "John", //
-  "last-name": "Doe",
-};
-
-console.log(person);
-
-// var foo = {
-//   0: 1,
-//   1: 2,
-//   2: 3,
-// };
-
-// console.log(foo);
-
-var foo = {
+const obj = {
   name: "Lee",
-  name: "Kim",
+  sayHi() {
+    console.log(`Hi! ${this.name}`);
+  },
 };
-console.log(foo);
+
+obj.sayHi();
