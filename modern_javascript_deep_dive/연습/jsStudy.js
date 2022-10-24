@@ -1,23 +1,31 @@
-// var done = true;
-// var message = "";
+// var person = {
+//   name: "Lee",
+//   sayHello: function () {
+//     console.log(`Hello! My name is ${this.name}`);
+//   },
+// };
 
-// if (done) message = "완료";
+// person.sayHello();
+// console.log(typeof person); // object
+// console.log(person); //
 
-// message = done && "완료";
-// console.log(message);
+var person = {
+  firstName: "John", //
+  "last-name": "Doe",
+};
 
-// var done = false;
-// var message = "";
+console.log(person);
 
-// if (done) message = "미완료";
+// var foo = {
+//   0: 1,
+//   1: 2,
+//   2: 3,
+// };
 
-// message = done || "미완료";
-// console.log(message);
+// console.log(foo);
 
-function getStringLength(str) {
-  str = str || "";
-  return str.length;
-}
-
-console.log(getStringLength());
-console.log(getStringLength("hi"));
+var foo = {
+  name: "Lee",
+  name: "Kim",
+};
+console.log(foo);
