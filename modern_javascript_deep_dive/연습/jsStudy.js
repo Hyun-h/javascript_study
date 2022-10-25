@@ -1,10 +1,26 @@
-var score = 80;
-var copy = score;
+// var person = {
+//   name: "Lee",
+// };
 
-console.log(score, copy);
-console.log(score === copy);
+// // 프로퍼티 값 갱신
+// person.name = "Kim";
 
-score = 100;
+// // 프로퍼티 동적 생성
+// person.address = "Seoul";
 
-console.log(score, copy);
-console.log(score === copy);
+// console.log(person);
+
+var person = {
+  name: "Lee",
+};
+
+var copy = person;
+
+console.log(copy === person);
+
+copy.name = "Kim";
+
+person.address = "Seoul";
+
+console.log(person);
+console.log(copy);
