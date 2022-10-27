@@ -1,26 +1,39 @@
-const sampleData = [
-  { name: "Kim", age: 20, address: "Seoul" },
-  { name: "Lee", age: 11, address: "Suwon" },
-  { name: "Park", age: 45, address: "Daegu" },
-  { name: "Woo", age: 62, address: "Ulsan" },
-  { name: "Choi", age: 32, address: "Busan" },
-];
+// (function () {
+//   console.log("bar");
+// })();
 
-// let copyData = [...sampleData];
-// delete copyData[2];
+// var add = function test(x, y) {
+//   return x + y;
+// };
 
-// console.log(copyData);
-// console.log(copyData[2]);
+// console.log(add(2, 5)); // 7
 
-// const filterData = copyData.filter((arrItem) => arrItem !== undefined);
+// console.dir(add);
+// console.dir(sub);
 
-// console.log(filterData);
+// console.log(add(2, 5));
+// console.log(sub(2, 5));
 
-//splice는 원본을 건드리므로 원본 데이터 복사해서 사용하기
-const shopsArr = [...sampleData];
+// function add(x, y) {
+//   return x + y;
+// }
 
-//target index 제거
-shopsArr.splice(2, 1);
+// var sub = function (x, y) {
+//   return x - y;
+// };
 
-//수정된 배열 보내기
-console.log(shopsArr);
+// var add1 = (function () {
+//   var a = 10;
+//   return function (x, y) {
+//     return x + y + a;
+//   };
+// })();
+
+// console.log(add1(1, 2)); // 13
+
+// var add2 = (function () {
+//   var a = 10;
+//   return new Function("x", "y", "return x + y + a;");
+// })();
+
+// console.log(add2(1, 2)); // ReferenceError: a is not defined
