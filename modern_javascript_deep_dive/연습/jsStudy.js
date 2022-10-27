@@ -1,26 +1,26 @@
-// var person = {
-//   name: "Lee",
-// };
+const sampleData = [
+  { name: "Kim", age: 20, address: "Seoul" },
+  { name: "Lee", age: 11, address: "Suwon" },
+  { name: "Park", age: 45, address: "Daegu" },
+  { name: "Woo", age: 62, address: "Ulsan" },
+  { name: "Choi", age: 32, address: "Busan" },
+];
 
-// // 프로퍼티 값 갱신
-// person.name = "Kim";
+// let copyData = [...sampleData];
+// delete copyData[2];
 
-// // 프로퍼티 동적 생성
-// person.address = "Seoul";
+// console.log(copyData);
+// console.log(copyData[2]);
 
-// console.log(person);
+// const filterData = copyData.filter((arrItem) => arrItem !== undefined);
 
-var person = {
-  name: "Lee",
-};
+// console.log(filterData);
 
-var copy = person;
+//splice는 원본을 건드리므로 원본 데이터 복사해서 사용하기
+const shopsArr = [...sampleData];
 
-console.log(copy === person);
+//target index 제거
+shopsArr.splice(2, 1);
 
-copy.name = "Kim";
-
-person.address = "Seoul";
-
-console.log(person);
-console.log(copy);
+//수정된 배열 보내기
+console.log(shopsArr);
