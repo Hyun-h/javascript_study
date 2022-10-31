@@ -1,41 +1,26 @@
-// function add(x, y) {
-//   console.log(arguments);
-
-//   return x + y;
-// }
-
-// console.log(add(2, 5, 10)); // 7
-
-// function add(x, y) {
-//   if (typeof x !== "number" || typeof y !== "number") {
-//     // 매개변수를 통해 전달된 인수의 타입이 부적절한 경우 에러를 발생시킨다.
-//     throw new TypeError("인수는 모두 숫자 값이어야 합니다.");
-//   }
-
-//   return x + y;
-// }
-
-// console.log(add(2));
-// console.log(add("a", "b"));
-
-// function add(a, b, c) {
-//   a = a || 0;
-//   b = b || 0;
-//   c = c || 0;
-
-//
-// }
-
-// console.log(add(1, 2, 3));
-// console.log(add(1, 2));
-// console.log(add(1));
-// console.log(add());
-
-function add(a = 0, b = 0, c = 0) {
-  return a + b + c;
+function changeVal(primitive, obj) {
+  primitive += 100;
+  obj.name = "Kim";
 }
 
-console.log(add(1, 2, 3));
-console.log(add(1, 2));
-console.log(add(1));
-console.log(add());
+var num = 100;
+var person = { name: "Lee" };
+
+console.log(num);
+console.log(person);
+
+changeVal(num, person);
+
+console.log(num);
+console.log(person);
+
+// 전역 실행문맥 생성. 전체 정의(word, init) 호이스팅
+var word = "실행 컨텍스트에 따라 여기에 무슨 문장이 씌여도 출력되지 않습니다.";
+init(); // init 실행문맥 생성. 내부 정의(word, sentence) 호이스팅
+function init() {
+  var word = "눈";
+  function sentence() {
+    console.log(`10월인데도 ${word}이 소복하게 쌓였다`); // 현재 실행문맥 내에 정의된게 없으니 outer 로 chain
+  }
+  sentence(); // sentence 실행문맥 생성. 내부 정의 호이스팅
+}
