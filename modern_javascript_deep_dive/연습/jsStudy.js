@@ -1,26 +1,65 @@
-function changeVal(primitive, obj) {
-  primitive += 100;
-  obj.name = "Kim";
-}
+// (function () {
+//   var a = 3;
+//   var b = 5;
+//   console.log(a * b);
+// })();
+// (function foo() {
+//   var a = 3;
+//   var b = 5;
+//   console.log(a * b);
+// })();
 
-var num = 100;
-var person = { name: "Lee" };
+// foo();
 
-console.log(num);
-console.log(person);
+// var res = (function (a, b) {
+//   return a * b;
+// })(3, 5);
 
-changeVal(num, person);
+// console.log(res);
 
-console.log(num);
-console.log(person);
+// function countdown(n) {
+//   for (var i = n; i >= 0; i--) console.log(i);
+// }
 
-// 전역 실행문맥 생성. 전체 정의(word, init) 호이스팅
-var word = "실행 컨텍스트에 따라 여기에 무슨 문장이 씌여도 출력되지 않습니다.";
-init(); // init 실행문맥 생성. 내부 정의(word, sentence) 호이스팅
-function init() {
-  var word = "눈";
-  function sentence() {
-    console.log(`10월인데도 ${word}이 소복하게 쌓였다`); // 현재 실행문맥 내에 정의된게 없으니 outer 로 chain
+// countdown(10);
+
+// function countdown(n) {
+//   if (n < 0) return;
+//   console.log(n);
+//   countdown(n - 1);
+// }
+
+// countdown(10);
+
+// function outer() {
+//   var x = 1;
+
+//   // 중첩 함수
+//   function inner() {
+//     var y = 2;
+//     // 외부 함수의 변수를 참조할 수 있다.
+//     console.log(x + y); // 3
+//   }
+
+//   inner();
+// }
+
+// outer();
+
+function repeat(n, f) {
+  for (var i = 0; i < n; i++) {
+    f(i);
   }
-  sentence(); // sentence 실행문맥 생성. 내부 정의 호이스팅
 }
+
+var logAll = function (i) {
+  console.log(i);
+};
+
+repeat(5, logAll);
+
+var logOdds = function (i) {
+  if (i % 2) console.log(i);
+};
+
+repeat(5, logOdds);
