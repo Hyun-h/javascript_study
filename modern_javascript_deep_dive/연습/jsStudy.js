@@ -46,20 +46,32 @@
 
 // outer();
 
-function repeat(n, f) {
-  for (var i = 0; i < n; i++) {
-    f(i);
-  }
+// function repeat(n, f) {
+//   for (var i = 0; i < n; i++) {
+//     f(i);
+//   }
+// }
+
+// var logAll = function (i) {
+//   console.log(i);
+// };
+
+// repeat(5, logAll);
+
+// var logOdds = function (i) {
+//   if (i % 2) console.log(i);
+// };
+
+// repeat(5, logOdds);
+
+var count = 0;
+
+function increase(n) {
+  return ++n;
 }
 
-var logAll = function (i) {
-  console.log(i);
-};
+count = increase(count);
+console.log(count);
 
-repeat(5, logAll);
-
-var logOdds = function (i) {
-  if (i % 2) console.log(i);
-};
-
-repeat(5, logOdds);
+count = increase(count);
+console.log(count);
