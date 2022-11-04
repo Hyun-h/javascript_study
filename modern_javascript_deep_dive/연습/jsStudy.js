@@ -1,44 +1,30 @@
-// (function () {
-//   var a = 3;
-//   var b = 5;
-//   console.log(a * b);
-// })();
-// (function foo() {
-//   var a = 3;
-//   var b = 5;
-//   console.log(a * b);
-// })();
+// var x = "global";
+
+// function foo() {
+//   var x = "local";
+//   console.log(x);
+// }
 
 // foo();
 
-// var res = (function (a, b) {
-//   return a * b;
-// })(3, 5);
+// console.log(x);
 
-// console.log(res);
-
-// function countdown(n) {
-//   for (var i = n; i >= 0; i--) console.log(i);
-// }
-
-// countdown(10);
-
-// function countdown(n) {
-//   if (n < 0) return;
-//   console.log(n);
-//   countdown(n - 1);
-// }
-
-// countdown(10);
+// var x = "global x";
+// var y = "global y";
 
 // function outer() {
-//   var x = 1;
+//   var z = "outer's local z";
 
-//   // 중첩 함수
+//   console.log(x);
+//   console.log(y);
+//   console.log(z);
+
 //   function inner() {
-//     var y = 2;
-//     // 외부 함수의 변수를 참조할 수 있다.
-//     console.log(x + y); // 3
+//     var x = "inner's local x";
+
+//     console.log(x);
+//     console.log(y);
+//     console.log(z);
 //   }
 
 //   inner();
@@ -46,32 +32,51 @@
 
 // outer();
 
-// function repeat(n, f) {
-//   for (var i = 0; i < n; i++) {
-//     f(i);
-//   }
+// console.log(x);
+// console.log(z);
+
+// function foo() {
+//   console.log("global function foo");
 // }
 
-// var logAll = function (i) {
+// function bar() {
+//   function foo() {
+//     console.log("local function foo");
+//   }
+
+//   foo();
+// }
+
+// bar();
+
+// var x = 1;
+// console.log(x);
+
+// if (true) {
+//   var x = 10;
+//   console.log(x);
+// }
+
+// console.log(x); // 10
+
+// var i = 10;
+
+// for (var i = 0; i < 5; i++) {
 //   console.log(i);
-// };
+// }
 
-// repeat(5, logAll);
+// console.log(i);
 
-// var logOdds = function (i) {
-//   if (i % 2) console.log(i);
-// };
+var x = 1;
 
-// repeat(5, logOdds);
-
-var count = 0;
-
-function increase(n) {
-  return ++n;
+function foo() {
+  var x = 10;
+  bar();
 }
 
-count = increase(count);
-console.log(count);
+function bar() {
+  console.log(x);
+}
 
-count = increase(count);
-console.log(count);
+foo();
+bar();
