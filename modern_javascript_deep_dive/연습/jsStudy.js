@@ -77,8 +77,19 @@
 // // 전역 객체 window의 프로퍼티는 전역 변수처럼 사용할 수 있다.
 // console.log(foo); //
 
-let x = 1;
+// let x = 1;
 
-// let, const 키워드로 선언한 전역 변수는 전역 객체 window의 프로퍼티가 아니다.
-console.log(window.x); // undefined
-console.log(x); // 1
+// // let, const 키워드로 선언한 전역 변수는 전역 객체 window의 프로퍼티가 아니다.
+// console.log(window.x); // undefined
+// console.log(x); // 1
+
+// const foo = 1;
+// const bar
+
+// {
+//   console.log(foo);
+//   const foo = 1;
+//   console.log(foo);
+// }
+
+// console.log(foo);
