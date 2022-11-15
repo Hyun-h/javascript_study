@@ -66,7 +66,7 @@
 | 2022-10-13 | 2022-10-17 | 01장 ~ 05장 | [1장][1장] [2장][2장] [4장][4장] [5장][5장]                      |
 | 2022-10-17 | 2022-10-24 | 06장 ~ 10장 | [6장][6장] [7장][7장] [8장][8장] [9장][9장] [10장][10장]         |
 | 2022-10-24 | 2022-11-07 | 11장 ~ 15장 | [11장][11장] [12장][12장] [13장][13장] [14장][14장] [15장][15장] |
-| 2022-11-08 |            | 16장 ~ 20장 | [16장][16장]                                                     |
+| 2022-11-08 |            | 16장 ~ 20장 | [16장][16장] [17장][17장]                                        |
 | 2022-      |            | 21장 ~ 25장 |                                                                  |
 | 2022-      |            | 26장 ~ 30장 |                                                                  |
 | 2022-      |            | 31장 ~ 35장 |                                                                  |
@@ -91,3 +91,4 @@
 [14장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/14%EC%9E%A5_%EC%A0%84%EC%97%AD_%EB%B3%80%EC%88%98%EC%9D%98_%EB%AC%B8%EC%A0%9C%EC%A0%90
 [15장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/15%EC%9E%A5_let_const_%ED%82%A4%EC%9B%8C%EB%93%9C%EC%99%80_%EB%B8%94%EB%A1%9D_%EB%A0%88%EB%B2%A8_%EC%8A%A4%EC%BD%94%ED%94%84.md
 [16장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/16%EC%9E%A5_%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0_%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8
+[17장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/17%EC%9E%A5_%EC%83%9D%EC%84%B1%EC%9E%90_%ED%95%A8%EC%88%98%EC%97%90_%EC%9D%98%ED%95%9C_%EA%B0%9D%EC%B2%B4_%EC%83%9D%EC%84%B1
