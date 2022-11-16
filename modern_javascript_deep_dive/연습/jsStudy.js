@@ -64,15 +64,48 @@
 // function bar() {}
 // console.log(bar.name); // bar
 
-function foo() {}
-console.log(foo.length); // 0
+// function foo() {}
+// console.log(foo.length); // 0
 
-function bar(x) {
-  return x;
-}
-console.log(bar.length); // 1
+// function bar(x) {
+//   return x;
+// }
+// console.log(bar.length); // 1
 
-function baz(x, y) {
-  return x * y;
+// function baz(x, y) {
+//   return x * y;
+// }
+// console.log(baz.length); // 2
+
+// function sum() {
+//   let res = 0;
+
+//   // arguments 객체는 length 프로퍼티가 있는 유사 배열 객체이므로 for 문으로 순회할 수 있다.
+//   for (let i = 0; i < arguments.length; i++) {
+//     res += arguments[i];
+//   }
+
+//   return res;
+// }
+
+// console.log(sum());
+// console.log(sum(1, 2));
+// console.log(sum(1, 2, 3));
+
+// function sum() {
+//   // arguments 객체를 배열로 변환
+//   const array = Array.prototype.slice.call(arguments);
+//   return array.reduce(function (pre, cur) {
+//     return pre + cur;
+//   }, 0);
+// }
+
+// console.log(sum(1, 2));
+// console.log(sum(1, 2, 3, 4, 5));
+
+function sum(...args) {
+  return args.reduce((pre, cur) => pre + cur, 0);
 }
-console.log(baz.length); // 2
+
+console.log(sum(1, 2));
+console.log(sum(1, 2, 3, 4, 5));
