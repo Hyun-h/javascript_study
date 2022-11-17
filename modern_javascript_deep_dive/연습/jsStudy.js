@@ -158,26 +158,106 @@
 // console.log(circle1.getArea()); // 3.141592653589793
 // console.log(circle2.getArea()); // 12.566370614359172
 
+// // 생성자 함수
+// function Circle(radius) {
+//   this.radius = radius;
+// }
+
+// // Circle 생성자 함수가 생성한 모든 인스턴스가 getArea 메서드를
+// // 공유해서 사용할 수 있도록 프로토타입에 추가한다.
+// // 프로토타입은 Circle 생성자 함수의 prototype 프로퍼티에 바인딩되어 있다.
+// Circle.prototype.getArea = function () {
+//   return Math.PI * this.radius ** 2;
+// };
+
+// // 인스턴스 생성
+// const circle1 = new Circle(1);
+// const circle2 = new Circle(2);
+
+// // Circle 생성자 함수가 생성한 모든 인스턴스는 부모 객체의 역할을 하는
+// // 프로토타입 Circle.prototype으로부터 getArea 메서드를 상속받는다.
+// // 즉, Circle 생성자 함수가 생성하는 모든 인스턴스는 하나의 getArea 메서드를 공유한다.
+// console.log(circle1.getArea === circle2.getArea);
+
+// console.log(circle1.getArea()); // 3.141592653589793
+// console.log(circle2.getArea()); // 12.566370614359172
+
+// const obj = {};
+// const parent = { x: 1 };
+
+// // getter 함수인 get __proto__가 호출되어 obj 프로토타입을 취득
+// obj.__proto__;
+
+// // setter 함수인 set __proto__가 호출되어 obj 객체의 프로토타입을 교체
+// obj.__proto__ = parent;
+
+// console.log(obj.x); // 1
+
+// const person = { name: "Lee" };
+
+// // person 객체는 __proto__ 프로퍼티를 소유하지 않는다.
+// console.log(person.hasOwnProperty("__proto__")); // false
+
+// // __proto__ 프로퍼티는 모든 객체의 프로토타입 객체인 Object.prototype의 접근자 프로퍼티다.
+// console.log(Object.getOwnPropertyDescriptor(Object.prototype, "__proto__"));
+// // {enumerable: false, configurable: true, get: ƒ, set: ƒ}
+
+// // 모든 객체는 Object.prototype의 접근자 프로퍼티 __proto__를 상속받아 사용할 수 있다.
+// console.log({}.__proto__ === Object.prototype); // true
+
+// // obj는 프로토타입 체인의 종점이다. 따라서 Object.__proto__를 상속받을 수 없다.
+// const obj = Object.create(null);
+
+// // obj는 Object.__proto__를 상속받을 수 없다.
+// console.log(obj.__proto__); // undefined
+
+// // 따라서 __proto__보다 Object.getPrototypeOf 메서드를 사용하는 편이 좋다.
+// console.log(Object.getPrototypeOf(obj)); // null
+
+// const obj = {};
+// const parent = { x: 1 };
+
+// // obj 객체의 프로토타입 취득
+// Object.getPrototypeOf(obj); // obj.__proto__;
+// // obj 객체의 프로토타입을 교체
+// Object.setPrototypeOf(obj, parent); // obj.__proto__ = parent;
+
+// console.log(obj.x); // 1
+
+// // 함수 객체는 prototype 프로퍼티를 소유한다.
+// console.log(function () {}.hasOwnProperty("prototype"));
+
+// // 일반 객체는 prototype 프로퍼티를 소유하지 않는다.
+// console.log({}.hasOwnProperty("prototype"));
+
+// // 화살표 함수는 non-constructor다.
+// const Person = (name) => {
+//   this.name = name;
+// };
+
+// // non=constructor는 prototype 프로퍼티를 소유하지 않는다.
+// console.log(Person.hasOwnProperty("prototype")); // false
+
+// // non-constructor는 프로토타입을 생성하지 않는다.
+// console.log(Person.prototype); // undefined
+
+// // ES6 메서드 축약 표현으로 정의한 메서드는 non-constructor다.
+// const obj = {
+//   foo() {},
+// };
+
+// // non-constructor는 prototype 프로퍼티를 소유하지 않는다.
+// console.log(obj.foo.hasOwnProperty("prototype")); // false
+
+// // non-constructor는 프로토타입을 생성하지 않는다.
+// console.log(obj.foo.prototype); // undefined
+
 // 생성자 함수
-function Circle(radius) {
-  this.radius = radius;
+function Person(name) {
+  this.name = name;
 }
 
-// Circle 생성자 함수가 생성한 모든 인스턴스가 getArea 메서드를
-// 공유해서 사용할 수 있도록 프로토타입에 추가한다.
-// 프로토타입은 Circle 생성자 함수의 prototype 프로퍼티에 바인딩되어 있다.
-Circle.prototype.getArea = function () {
-  return Math.PI * this.radius ** 2;
-};
+const me = new Person("Lee");
 
-// 인스턴스 생성
-const circle1 = new Circle(1);
-const circle2 = new Circle(2);
-
-// Circle 생성자 함수가 생성한 모든 인스턴스는 부모 객체의 역할을 하는
-// 프로토타입 Circle.prototype으로부터 getArea 메서드를 상속받는다.
-// 즉, Circle 생성자 함수가 생성하는 모든 인스턴스는 하나의 getArea 메서드를 공유한다.
-console.log(circle1.getArea === circle2.getArea);
-
-console.log(circle1.getArea()); // 3.141592653589793
-console.log(circle2.getArea()); // 12.566370614359172
+// me 객체의 생성자 함수는 Person이다.
+console.log(me.constructor === Person); // true
