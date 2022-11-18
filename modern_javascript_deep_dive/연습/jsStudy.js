@@ -279,19 +279,35 @@
 // const me = new Person("Lee");
 // console.log(me.constructor === Person); // true
 
-// obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴로 생성했다.
-const obj = {};
+// // obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴로 생성했다.
+// const obj = {};
 
-// 하지만 obj 객체의 생성자 함수는 Object 생성자 함수다.
-console.log(obj.constructor === Object); // true
+// // 하지만 obj 객체의 생성자 함수는 Object 생성자 함수다.
+// console.log(obj.constructor === Object); // true
 
-// 함수 리터럴
-const add = function (a, b) {
-  return a + b;
+// // 함수 리터럴
+// const add = function (a, b) {
+//   return a + b;
+// };
+
+// // 배열 리터럴
+// const arr = [1, 2, 3];
+
+// // 정규 표현식 리터럴
+// const regexp = /is/gi;
+
+// // 함수 정의(constructor)가 평가되어 함수 객체를 생성하는 시점에 프로토타입도 같이 생성된다.
+// console.log(Person.prototype); // {constructor: ƒ}
+
+// // 생성자 함수
+// function Person(name) {
+//   this.name = name;
+// }
+
+// 화살표 함수는 non-constructor다.
+const Person = (name) => {
+  this.name = name;
 };
 
-// 배열 리터럴
-const arr = [1, 2, 3];
-
-// 정규 표현식 리터럴
-const regexp = /is/gi;
+// non-constructors는 프로토타입이 생기지 않는다.
+console.log(Person.prototype); // undefined
