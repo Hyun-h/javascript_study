@@ -304,10 +304,25 @@
 //   this.name = name;
 // }
 
-// 화살표 함수는 non-constructor다.
-const Person = (name) => {
+// // 화살표 함수는 non-constructor다.
+// const Person = (name) => {
+//   this.name = name;
+// };
+
+// // non-constructors는 프로토타입이 생기지 않는다.
+// console.log(Person.prototype); // undefined
+
+function Person(name) {
   this.name = name;
+}
+
+// 프로토타입 메서드
+Person.prototype.sayHello = function () {
+  console.log(`Hi! My name is ${this.name}`);
 };
 
-// non-constructors는 프로토타입이 생기지 않는다.
-console.log(Person.prototype); // undefined
+const me = new Person("Lee");
+const you = new Person("Kim");
+
+me.sayHello();
+you.sayHello();
