@@ -312,21 +312,46 @@
 // // non-constructors는 프로토타입이 생기지 않는다.
 // console.log(Person.prototype); // undefined
 
-function Person(name) {
-  this.name = name;
-}
+// function Person(name) {
+//   this.name = name;
+// }
 
-// 프로토타입 메서드
-Person.prototype.sayHello = function () {
-  console.log(`Hi! My name is ${this.name}`);
-};
+// // 프로토타입 메서드
+// Person.prototype.sayHello = function () {
+//   console.log(`Hi! My name is ${this.name}`);
+// };
+
+// const me = new Person("Lee");
+
+// // hasOwnProperty는 Object.prototype의 메서드다.
+// console.log(me.hasOwnProperty("name")); // true
+
+// // me 객체의 프로토타입은 Person.prototype이다.
+// console.log(Object.getPrototypeOf(me) === Person.prototype); // true
+
+// console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // true
+
+const Person = (function () {
+  // 생성자 함수
+  function Person(name) {
+    this.name = name;
+  }
+
+  // 프로토타이ㅏㅂ 메서드
+  Person.prototype.sayHello = function () {
+    console.log(`Hi! My name is ${this.name}`);
+  };
+
+  // 생성자 함수를 반환
+  return Person;
+})();
 
 const me = new Person("Lee");
 
-// hasOwnProperty는 Object.prototype의 메서드다.
-console.log(me.hasOwnProperty("name")); // true
+// 인스턴스 메서드
+me.sayHello = function () {
+  console.log(`Hi! My name is ${this.name} : 인스턴스 메서드`);
+};
 
-// me 객체의 프로토타입은 Person.prototype이다.
-console.log(Object.getPrototypeOf(me) === Person.prototype); // true
-
-console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // true
+// 인스턴스 메서드가 호출된다. 프로토타입 메서드는 인스턴스 메서드에 의해 가려진다.
+me.sayHello(); // Hi! My name is Lee : 인스턴스 메서드
