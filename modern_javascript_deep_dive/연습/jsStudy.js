@@ -322,7 +322,11 @@ Person.prototype.sayHello = function () {
 };
 
 const me = new Person("Lee");
-const you = new Person("Kim");
 
-me.sayHello();
-you.sayHello();
+// hasOwnProperty는 Object.prototype의 메서드다.
+console.log(me.hasOwnProperty("name")); // true
+
+// me 객체의 프로토타입은 Person.prototype이다.
+console.log(Object.getPrototypeOf(me) === Person.prototype); // true
+
+console.log(Object.getPrototypeOf(Person.prototype) === Object.prototype); // true
