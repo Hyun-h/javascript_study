@@ -72,7 +72,7 @@
 | 2022-      |            | 31장 ~ 35장 |                                                                  |
 | 2022-      |            | 36장 ~ 40장 | [38장][38장]                                                     |
 | 2022-      |            | 41장 ~ 45장 |                                                                  |
-| 2022-      |            | 46장 ~ 49장 | [46장][46장]                                                     |
+| 2022-      |            | 46장 ~ 49장 | [46장][46장] [49장][49장]                                        |
 
 <!-- 공부 링크 정리 -->
 
@@ -95,3 +95,4 @@
 [18장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/18%EC%9E%A5_%ED%95%A8%EC%88%98%EC%99%80_%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4
 [38장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/38%EC%9E%A5_%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98_%EB%A0%8C%EB%8D%94%EB%A7%81_%EA%B3%BC%EC%A0%95
 [46장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/46%EC%9E%A5_%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80_async_await
+[49장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/49%EC%9E%A5_Babel%EA%B3%BC_Webpack
