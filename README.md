@@ -89,7 +89,7 @@
 [12장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/12%EC%9E%A5_%ED%95%A8%EC%88%98
 [13장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/13%EC%9E%A5_%EC%8A%A4%EC%BD%94%ED%94%84
 [14장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/14%EC%9E%A5_%EC%A0%84%EC%97%AD_%EB%B3%80%EC%88%98%EC%9D%98_%EB%AC%B8%EC%A0%9C%EC%A0%90
-[15장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/15%EC%9E%A5_let_const_%ED%82%A4%EC%9B%8C%EB%93%9C%EC%99%80_%EB%B8%94%EB%A1%9D_%EB%A0%88%EB%B2%A8_%EC%8A%A4%EC%BD%94%ED%94%84.md
+[15장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/15%EC%9E%A5_let_const_%ED%82%A4%EC%9B%8C%EB%93%9C%EC%99%80_%EB%B8%94%EB%A1%9D_%EB%A0%88%EB%B2%A8_%EC%8A%A4%EC%BD%94%ED%94%84
 [16장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/16%EC%9E%A5_%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0_%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8
 [17장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/17%EC%9E%A5_%EC%83%9D%EC%84%B1%EC%9E%90_%ED%95%A8%EC%88%98%EC%97%90_%EC%9D%98%ED%95%9C_%EA%B0%9D%EC%B2%B4_%EC%83%9D%EC%84%B1
 [18장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/18%EC%9E%A5_%ED%95%A8%EC%88%98%EC%99%80_%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4
