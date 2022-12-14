@@ -1,59 +1,52 @@
-// // // 프로토타입이 null인 객체를 생성한다. 생성된 객체는 프로토타입 체인의 종점에 위치한다.
-// // // obj -> null
-// let obj = Object.create(null);
+// // 생성자 함수
+// function Person(name) {
+//   this.name = name;
+// }
 
-// console.log(Object.getPrototypeOf(obj) === null); // true
-// // Object.prototype을 상속받지 못한다.
-// console.log(obj.toString()); // TypeError: obj.toString is not a function
+// // 프로토타입 메서드
+// Person.prototype.sayHello = function () {
+//   console.log(`Hi! My name is ${this.name}`);
+// };
 
-// // obj -> Object.prototype -> null
-// // obj = {};와 동일하다.
-// obj = Object.create(Object.prototype);
-// console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+// // 정적 프로퍼티
+// Person.staticProp = "static prop";
 
-// // obj -> Object.prototype -> null
-// // obj = { x: 1 };와 동일하다.
-// obj = Object.create(Object.prototype, {
-//   x: { value: 1, writable: true, enumerable: true, configurable: true },
-// });
-// // 위 코드는 아래와 동일하다.
-// // obj = Object.create(Object.prototype);
-// // obj.x = 1;
-// console.log(obj.x); // 1
-// console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+// // 정적 메서드
+// Person.staticMethod = function () {
+//   console.log("staticMethod");
+// };
 
-// const myProto = { x: 10 };
-// // 임의의 객채를 직접 상속받는다.
-// // obj -> myProto -> Object.prototype -> null
-// obj = Object.create(myProto);
-// console.log(obj.x); // 10
-// console.log(Object.getPrototypeOf(obj) === myProto); // true
+// const me = new Person("Lee");
 
-// // 프로토타입이 null인 객체, 즉 프로토타입 체인의 종점에 위치하는 객체를 생성한다.
-// const obj = Object.create(null);
-// obj.a = 1;
+// // 생성자 함수에 추가한 정적 프로퍼티/메서드는 생성자 함수로 참조/호출한다.
+// Person.staticMethod(); // staticMethod
 
-// //console.log(obj.hasOwnProperty("a"));
-// // TypeError: obj.hasOwnProperty is not a function
+// // 정적 프로퍼티/메서드는 생성자 함수가 생성한 인스턴스로 참조.호출할 수 없다.
+// // 인스턴스로 참조/호출할 수 있는 프로퍼티/메서드는 프로토타입 체인 상에 존재해야 한다.
+// me.staticMethod(); // TypeError: me.staticMethod is not a function
 
-// // Object.prototype의 빌트인 메서드는 객체로 직접 호출하지 않는다.
-// console.log(Object.prototype.hasOwnProperty.call(obj, "a"));
+// // Object.create는 정적 메서드다.
+// const obj = Object.create({ name: "Lee" });
 
-const myProto = { x: 10 };
+// // Object.prototype.hasOwnProperty는 프로토타입 메서드다.
+// obj.hasOwnProperty("name"); // false
 
-// 객체 리터럴에 의해 객체를 생성하면서 프로토타입을 지정하여 직접 상속받을 수 있다.
-const obj = {
-  y: 20,
-  // 객체ㅐ를 직접 상속받는다.
-  // obj -> myProto -> Object.prototype -> null
-  __proto__: myProto,
+function Foo() {}
+
+// 프로토타입 메서드
+// this를 참조하지 않는 프로토타입 메서드는 정적 메서드로 변경하여도 동일한 효과를 볼 수 있다.
+Foo.prototype.x = function () {
+  console.log("x");
 };
-/*
-위 코드는 아래와 동일하다.
-obj = Object.create(Object.prototype, {
-  x: { value: 1, writable: true, enumerable: true, configurable: true },
-});
-*/
 
-console.log(obj.x, obj.y); // 10 20
-console.log(Object.getPrototypeOf(obj) == myProto); // true
+const foo = new Foo();
+// 프로토타입 메서드를 호출하려면 인스턴스를 생성해야 한다.
+foo.x(); // x
+
+// 정적 메서드
+Foo.x = function () {
+  console.log("x");
+};
+
+// 정적 메서드는 인스턴스를 새어하지 않아도 호출할 수 있다.
+Foo.x(); // x
