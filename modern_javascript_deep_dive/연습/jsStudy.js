@@ -1,20 +1,45 @@
 const person = {
   name: "Lee",
   address: "Seoul",
+  __proto__: { age: 20 },
 };
 
-// Person 객체에 name 프로퍼티가 존재한다.
-console.log("name" in person); // true
-// Person 객체에 address 프로퍼티가 존재한다.
-console.log("address" in person); // true
-// Person 객체에 age 프로퍼티가 존재한다.
-console.log("age" in person); // false
+// // for ... in 문의 변수 prop에 person 객체의 프로퍼티 키가 할당된다.
+// for (const key in person) {
+//   console.log(key + ": " + person[key]);
+// }
+// // name: Lee
+// // address: Seoul
 
-console.log("toString" in person);
+// console.log(Object.getOwnPropertyDescriptor(Object.prototype, "toString"));
 
-console.log(Reflect.has(person, "name")); // true
-console.log(Reflect.has(person, "toString")); // true
+// for (const key in person) {
+//   console.log(key + ": " + person[key]);
+// }
 
-console.log(person.hasOwnProperty("name")); // true
-console.log(person.hasOwnProperty("age")); // false
-console.log(person.hasOwnProperty("toString")); // false
+// const sym = Symbol();
+// const obj = {
+//   a: 1,
+//   [sym]: 10,
+// };
+
+// for (const key in obj) {
+//   console.log(key + ": " + obj[key]);
+// }
+// // a: 1
+
+for (const key in person) {
+  // 객체 자신의 프로퍼티인지 확인한다.
+  if (!person.hasOwnProperty(key)) continue;
+  console.log(key + ": " + person[key]);
+}
+
+// console.log(Object.keys(person)); // [ 'name', 'address' ]
+// console.log(Object.values(person));
+// console.log(Object.entries(person)); //[ [ 'name', 'Lee' ], [ 'address', 'Seoul' ] ]
+
+// Object.entries(person).forEach(([key, value]) => console.log(key, value));
+/*
+name Lee
+address Seoul
+*/
