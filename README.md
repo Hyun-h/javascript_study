@@ -43,7 +43,8 @@
 1. 코딩애플 강의의 자바스크립트 기초 강의 듣기 => 22년 9월 6일 완료
 2. 코딩애플 강의의 ES6강의 듣기 => 22년 10월 12일 완료
 3. 모던 자바스크립트 딥다이브 책 정독하고 해당 레포지토리에 기록하기 => 22년 10월 13일 시작
-4. 자바스크립트로 된 코딩 테스트를 풀면서 자바스크립트 만져보기
+4. 히키맹 선생님의 자바스크립트 스터디 : 자바스크립트에 대해 더 깊고 질 좋은 공부를 할 수 있을 거 같아서 추가. => 22년 12월 27일 시작
+5. 자바스크립트로 된 코딩 테스트를 풀면서 자바스크립트 만져보기
 
 ## 공부하는 방법
 
@@ -98,3 +99,12 @@
 [38장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/38%EC%9E%A5_%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98_%EB%A0%8C%EB%8D%94%EB%A7%81_%EA%B3%BC%EC%A0%95
 [46장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/46%EC%9E%A5_%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80_async_await
 [49장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/49%EC%9E%A5_Babel%EA%B3%BC_Webpack
+
+## 웹 개발자를 위한 자바스크립트의 모든 것 달성표
+
+### 규칙
+
+1. 한 주에 3장씩 나간다.
+2. 결석은 이유 묻지 않고 한 번만 인정한다. 2번은 아웃!
+3. 실명으로 참여하고, 줌을 화상채팅을 하지 않으면 강퇴
+4. 각 범위에 맞게 토론을 리드할 사람을 랜덤하게 지정한다.
