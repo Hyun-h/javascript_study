@@ -56,7 +56,7 @@
 
 ### 규칙
 
-1. ~~한 주에 5장씩 나간다.~~ => 2주에 5장씩 나간다 : 천천히 이해해야 하는 개념들의 증가.
+1. ~~한 주에 5장씩 나간다.~~ => 기간 정하지 말기. 스터디원 모두 이직 중. 공부 끝날 때마다 업데이트
 2. 1회독은 읽고 정리하는데 의의를 둔다. 이해가 어렵다고 늘어지거나 **포기하지 말 것.**
 3. 목표한 장을 읽고 스터디원과 일요일에 점검한다.
 4. 스터디원에게 어떤 걸 공부했는지, 어떤 게 이해가 가지 않았는지 토의할 정도로 읽을 것. (온라인에서 확인한다고 대충하지 말라는 소리)
@@ -66,8 +66,8 @@
 | 2022-10-13 | 2022-10-17 | 01장 ~ 05장 | [1장][1장] [2장][2장] [4장][4장] [5장][5장]                      |
 | 2022-10-17 | 2022-10-24 | 06장 ~ 10장 | [6장][6장] [7장][7장] [8장][8장] [9장][9장] [10장][10장]         |
 | 2022-10-24 | 2022-11-07 | 11장 ~ 15장 | [11장][11장] [12장][12장] [13장][13장] [14장][14장] [15장][15장] |
-| 2022-11-08 |            | 16장 ~ 20장 | [16장][16장] [17장][17장] [18장][18장]                           |
-| 2022-      |            | 21장 ~ 25장 |                                                                  |
+| 2022-11-08 | 2022-12-16 | 16장 ~ 20장 | [16장][16장] [17장][17장] [18장][18장] [19장][19장] [20장][20장] |
+| 2022-12-16 |            | 21장 ~ 25장 |                                                                  |
 | 2022-      |            | 26장 ~ 30장 |                                                                  |
 | 2022-      |            | 31장 ~ 35장 |                                                                  |
 | 2022-      |            | 36장 ~ 40장 | [38장][38장]                                                     |
@@ -93,6 +93,8 @@
 [16장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/16%EC%9E%A5_%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0_%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8
 [17장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/17%EC%9E%A5_%EC%83%9D%EC%84%B1%EC%9E%90_%ED%95%A8%EC%88%98%EC%97%90_%EC%9D%98%ED%95%9C_%EA%B0%9D%EC%B2%B4_%EC%83%9D%EC%84%B1
 [18장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/18%EC%9E%A5_%ED%95%A8%EC%88%98%EC%99%80_%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4
+[19장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/19%EC%9E%A5_%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85
+[20장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/20%EC%9E%A5_strict_mode
 [38장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/38%EC%9E%A5_%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98_%EB%A0%8C%EB%8D%94%EB%A7%81_%EA%B3%BC%EC%A0%95
 [46장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/46%EC%9E%A5_%EC%A0%9C%EB%84%88%EB%A0%88%EC%9D%B4%ED%84%B0%EC%99%80_async_await
 [49장]: https://github.com/Hyun-h/javascript_study/tree/main/modern_javascript_deep_dive/49%EC%9E%A5_Babel%EA%B3%BC_Webpack
