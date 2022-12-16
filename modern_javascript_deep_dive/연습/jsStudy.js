@@ -1,45 +1,79 @@
-const person = {
-  name: "Lee",
-  address: "Seoul",
-  __proto__: { age: 20 },
-};
+// "use strict";
 
-// // for ... in 문의 변수 prop에 person 객체의 프로퍼티 키가 할당된다.
-// for (const key in person) {
-//   console.log(key + ": " + person[key]);
+// function foo() {
+//   x = 10; // ReferenceError: x is not defined
 // }
-// // name: Lee
-// // address: Seoul
+// foo();
 
-// console.log(Object.getOwnPropertyDescriptor(Object.prototype, "toString"));
+// (function () {
+//   // non-strict mode
+//   var let = 10; // 에러가 발생하지 않는다.
 
-// for (const key in person) {
-//   console.log(key + ": " + person[key]);
-// }
+//   function foo() {
+//     "use strict";
 
-// const sym = Symbol();
-// const obj = {
-//   a: 1,
-//   [sym]: 10,
-// };
+//     let = 20; // Unexpected strict mode reserved word
+//   }
+//   foo();
+// })();
 
-// for (const key in obj) {
-//   console.log(key + ": " + obj[key]);
-// }
-// // a: 1
+// (function () {
+//   "use strict";
 
-for (const key in person) {
-  // 객체 자신의 프로퍼티인지 확인한다.
-  if (!person.hasOwnProperty(key)) continue;
-  console.log(key + ": " + person[key]);
-}
+//   x = 1;
+//   console.log(x); // ReferenceError: x is not defined
+// })();
 
-// console.log(Object.keys(person)); // [ 'name', 'address' ]
-// console.log(Object.values(person));
-// console.log(Object.entries(person)); //[ [ 'name', 'Lee' ], [ 'address', 'Seoul' ] ]
+// (function () {
+//   "use strict";
 
-// Object.entries(person).forEach(([key, value]) => console.log(key, value));
-/*
-name Lee
-address Seoul
-*/
+//   var x = 1;
+//   delete x;
+
+//   function foo(a) {
+//     delete a;
+//   }
+//   delete foo;
+// })();
+
+// (function () {
+//   "use strict";
+
+//   // SyntaxError: Duplicate parameter name not allowed in this context
+//   function foo(x, x) {
+//     return x + x;
+//   }
+
+//   console.log(foo(1, 2));
+// })();
+
+// (function () {
+//   "use strict";
+
+//   with ({ x: 1 }) {
+//     console.log(x);
+//   }
+// })();
+
+// (function () {
+//   "use strict";
+
+//   function foo() {
+//     console.log(this); // undefined
+//   }
+//   foo();
+
+//   function Foo() {
+//     console.log(this); // foo
+//   }
+//   new Foo();
+// })();
+
+(function (a) {
+  "use strict";
+  // 매개변수에 전달된 인수를 재할당하여 변경
+  a = 2;
+
+  // 변경된 인수가 arguments 객체에 반영되지 않는다.
+  console.log(arguments);
+})(1);
