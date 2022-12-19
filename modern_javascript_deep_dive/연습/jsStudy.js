@@ -1,79 +1,41 @@
-// "use strict";
+// String 생성자 함수에 의한 String 객체 생성
+const strObj = new String("Lee"); // String {"Lee"}
+console.log(typeof strObj); // object
 
-// function foo() {
-//   x = 10; // ReferenceError: x is not defined
-// }
-// foo();
+// Number 생성자 함수에 의한 Number 객체 생성
+//const numObj = new Number(123); // Number {123}
+//console.log(typeof numObj); // object
 
-// (function () {
-//   // non-strict mode
-//   var let = 10; // 에러가 발생하지 않는다.
+// Boolean 생성자 함수에 의한 Boolean 객체 생성
+const boolObj = new Boolean(true); // Boolean {true}
+console.log(typeof boolObj); // object
 
-//   function foo() {
-//     "use strict";
+// Function 생성자 함수에 의한 Function 객체(함수) 생성
+const func = new Function("x", "return x * x"); // ƒ anonymous(x )
+console.log(typeof func); // function
 
-//     let = 20; // Unexpected strict mode reserved word
-//   }
-//   foo();
-// })();
+// Array 생성자 함수에 의한 Array 객체(배열) 생성
+const arr = new Array(1, 2, 3); // (3) [ 1, 2, 3 ]
+console.log(typeof arr); // object
 
-// (function () {
-//   "use strict";
+// RegExp 생성자 함수에 의한 RegExp 객체(정규 표현식) 생성
+const regExp = new RegExp(/ab+c/i); // ab+c/i
+console.log(typeof regExp); // object
 
-//   x = 1;
-//   console.log(x); // ReferenceError: x is not defined
-// })();
+// Date 생성자 함수에 의한 Date 객체 생성
+const date = new Date();
+console.log(date); // 2022-12-19T00:40:30.393Z
+console.log(typeof date); // object
 
-// (function () {
-//   "use strict";
+console.log(Object.getPrototypeOf(strObj) === String.prototype); // true
 
-//   var x = 1;
-//   delete x;
+// Number 생성자 함수에 의한 Number 객체 생성
+const numObj = new Number(1.5);
 
-//   function foo(a) {
-//     delete a;
-//   }
-//   delete foo;
-// })();
+// toFixed는 Number.prototype의 프로토타입 메서드다.
+// Number.prototype.toFixed는 소수점 자리를 반올림하여 문자열로 반환한다.
+console.log(numObj.toFixed()); // 2
 
-// (function () {
-//   "use strict";
-
-//   // SyntaxError: Duplicate parameter name not allowed in this context
-//   function foo(x, x) {
-//     return x + x;
-//   }
-
-//   console.log(foo(1, 2));
-// })();
-
-// (function () {
-//   "use strict";
-
-//   with ({ x: 1 }) {
-//     console.log(x);
-//   }
-// })();
-
-// (function () {
-//   "use strict";
-
-//   function foo() {
-//     console.log(this); // undefined
-//   }
-//   foo();
-
-//   function Foo() {
-//     console.log(this); // foo
-//   }
-//   new Foo();
-// })();
-
-(function (a) {
-  "use strict";
-  // 매개변수에 전달된 인수를 재할당하여 변경
-  a = 2;
-
-  // 변경된 인수가 arguments 객체에 반영되지 않는다.
-  console.log(arguments);
-})(1);
+// isInteger는 Number의 정적 메서드다.
+// Number.isInteger는 인수가 정수(integer)인지 검사하여 그 결과를 Boolean으로 반환한다.
+console.log(Number.isInteger(0.5)); // False
